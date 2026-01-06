@@ -43,7 +43,7 @@
         <ProjectItem ReplaceParameters="true" TargetFileName="Resources.resx">Resources.resx</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="Resources.Designer.vb">Resources.Designer.vb</ProjectItem>
       </Folder>
-      <ProjectItem ReplaceParameters="true" TargetFileName="Readme.txt">Readme.txt</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="README.md">README.md</ProjectItem>
       <Folder Name="Resources" TargetFolderName="Resources">
         <ProjectItem ReplaceParameters="false" TargetFileName="API_ToolTip.png">API_ToolTip.png</ProjectItem>
         <ProjectItem ReplaceParameters="false" TargetFileName="AU_ToolTip.PNG">AU_ToolTip.PNG</ProjectItem>
