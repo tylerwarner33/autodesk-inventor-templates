@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<!-- Autodesk Version -->
+	<!-- Inventor Version -->
 	<PropertyGroup>
-		<AutodeskVersion>2026</AutodeskVersion>
+		<InventorVersion>2026</InventorVersion>
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -11,7 +11,7 @@
 		<OutputType>Library</OutputType>
 		<StartAction>Program</StartAction>
 		<!-- For Debugging Inventor Extension: Primary Method -->
-		<StartProgram>$(ProgramFiles)\Autodesk\Inventor $(AutodeskVersion)\Bin\Inventor.exe</StartProgram>
+		<StartProgram>$(ProgramFiles)\Autodesk\Inventor $(InventorVersion)\Bin\Inventor.exe</StartProgram>
 
 		<AssemblyTitle>$(MSBuildProjectName)</AssemblyTitle>
 		<Description>$(MSBuildProjectName)</Description>
@@ -43,7 +43,7 @@
 	<!-- Assembly References -->
 	<ItemGroup>
 		<Reference Include="Autodesk.Inventor.Interop">
-			<HintPath>$(ProgramFiles)\Autodesk\Inventor $(AutodeskVersion)\Bin\Public Assemblies\Autodesk.Inventor.Interop.dll</HintPath>
+			<HintPath>$(ProgramFiles)\Autodesk\Inventor $(InventorVersion)\Bin\Public Assemblies\Autodesk.Inventor.Interop.dll</HintPath>
 			<EmbedInteropTypes>True</EmbedInteropTypes>
 		</Reference>
 	</ItemGroup>
@@ -83,7 +83,7 @@
 	<!-- This 'PropertyGroup' section specifies where the plugin is being installed. -->
 	<PropertyGroup>
 		<!-- Inventor Plugin Folder - Per User, Version Dependent -->
-		<AppPluginOutputPath>$(AppData)\Autodesk\Inventor $(AutodeskVersion)\Addins</AppPluginOutputPath>
+		<AppPluginOutputPath>$(AppData)\Autodesk\Inventor $(InventorVersion)\Addins</AppPluginOutputPath>
 	</PropertyGroup>
 
 	<!-- This 'Target' section acts as the post-clean events. The newer 'SDK-style' version of a .target file. -->
