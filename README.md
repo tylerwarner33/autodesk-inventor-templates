@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 This repository is based on the templates created by Curtis Waguespack & provided in his Autodesk University 2023 class: 
-[Bridging the Gap Between iLogic Automation and Inventor Add-Ins](https://www.autodesk.com/autodesk-university/class/iLogic-25-Tips-and-Tricks-Boost-Octane-your-Inventor-Automation-2022).
+[Bridging the Gap Between iLogic Automation and Inventor Add-Ins](https://www.autodesk.com/autodesk-university/class/Bridging-the-Gap-Between-iLogic-Automation-and-Inventor-Add-Ins-2023).
 
 - The templates have been modernized to the `dotnet new` template format.
 - The projects have been modernized to the `SDK-style` project format.
