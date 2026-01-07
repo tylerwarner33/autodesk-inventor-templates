@@ -1,0 +1,119 @@
+{
+	"$schema": "http://json.schemastore.org/template",
+	"author": "Curtis Waguespack",
+	"classifications": [
+		"Library",
+		"Autodesk",
+		"Inventor",
+		"Add-In",
+		"VB"
+	],
+	"identity": "Autodesk.Inventor.AddIn.Stacked",
+	"name": "Inventor Add-In Stacked Template",
+	"shortName": "inventoraddin-stacked",
+	"description": "A custom template for creating Autodesk Inventor Add-Ins, with stacked buttons",
+	"defaultName": "InventorAddIn",
+	"tags": {
+		"language": "VB",
+		"type": "project"
+	},
+	"sourceName": "InventorAddIn",
+	"preferNameDirectory": true,
+	"symbols": {
+		"InventorVersion": {
+			"type": "parameter",
+			"datatype": "choice",
+			"description": "Target Inventor version",
+			"defaultValue": "2026",
+			"choices": [
+				{
+					"choice": "2023",
+					"description": "Inventor 2023 (.NET Framework 4.8)"
+				},
+				{
+					"choice": "2024",
+					"description": "Inventor 2024 (.NET Framework 4.8)"
+				},
+				{
+					"choice": "2025",
+					"description": "Inventor 2025 (.NET 8.0)"
+				},
+				{
+					"choice": "2026",
+					"description": "Inventor 2026 (.NET 8.0)"
+				}
+			],
+			"replaces": "INVENTOR_VERSION_PLACEHOLDER"
+		},
+		"TargetFramework": {
+			"type": "generated",
+			"generator": "switch",
+			"replaces": "TARGET_FRAMEWORK_PLACEHOLDER",
+			"parameters": {
+				"evaluator": "C++",
+				"datatype": "string",
+				"cases": [
+					{
+						"condition": "(InventorVersion == '2023')",
+						"value": "net48"
+					},
+					{
+						"condition": "(InventorVersion == '2024')",
+						"value": "net48"
+					},
+					{
+						"condition": "(InventorVersion == '2025')",
+						"value": "net8.0-windows"
+					},
+					{
+						"condition": "(InventorVersion == '2026')",
+						"value": "net8.0-windows"
+					}
+				]
+			}
+		}
+	},
+	"forms": {
+		"safe_name": {
+			"identifier": "safe_namespace",
+			"description": "Converts name to valid namespace/identifier"
+		}
+	},
+	"sources": [
+		{
+			"modifiers": [
+				{
+					"exclude": [
+						".template.config/**",
+						"**/*.vstemplate",
+						"__TemplateIcon.png"
+					]
+				},
+				{
+					"rename": {
+						"InventorAddIn.vbproj": "InventorAddIn.vbproj",
+						"InventorAddIn.X.manifest": "InventorAddIn.X.manifest",
+						"Autodesk.InventorAddIn.Inventor.addin": "Autodesk.InventorAddIn.Inventor.addin"
+					}
+				}
+			]
+		}
+	],
+	"primaryOutputs": [
+		{
+			"path": "InventorAddIn.vbproj"
+		}
+	],
+	"postActions": [
+		{
+			"description": "Restore NuGet packages",
+			"manualInstructions": [
+				{
+					"text": "Run 'dotnet restore'"
+				}
+			],
+			"actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+			"continueOnError": true
+		}
+	]
+}

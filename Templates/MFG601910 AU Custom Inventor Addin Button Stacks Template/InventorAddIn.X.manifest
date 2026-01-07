@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+
+  <assemblyIdentity name="{{ProjectName}}" version="1.0.0.0"></assemblyIdentity>
+
+  <clrClass clsid="{{{guid}}}" progid="{{ProjectName}}.StandardAddInServer" threadingModel="Both" name="{{ProjectName}}.{{ProjectName}}.StandardAddInServer" runtimeVersion=""></clrClass>
+
+  <file name="{{ProjectName}}.dll" hashalg="SHA1"></file>
+
+</assembly>

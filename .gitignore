@@ -137,7 +137,8 @@ ipch/
 *.e2e
 
 # TFS 2012 Local Workspace
-$tf/
+
+tf/
 
 # Guidance Automation Toolkit
 *.gpState

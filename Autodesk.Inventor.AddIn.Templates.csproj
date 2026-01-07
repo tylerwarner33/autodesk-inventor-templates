@@ -1,0 +1,79 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- Required for template packages -->
+    <PackageType>Template</PackageType>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+
+    <!-- NuGet Package Metadata -->
+    <PackageId>Autodesk.Inventor.AddIn.Templates</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Title>Autodesk Inventor Add-In Templates</Title>
+    <Authors>Curtis Waguespack</Authors>
+    <Description>Project templates for creating Autodesk Inventor Add-Ins with VB.NET</Description>
+    <PackageTags>dotnet-new;templates;autodesk;inventor;add-in;vb;vbnet</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/your-repo-here</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/your-repo-here</RepositoryUrl>
+
+	  <!-- Disable all default item includes - treat Templates folder as raw content -->
+	  <EnableDefaultItems>false</EnableDefaultItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Include all template content -->
+    <Content Include="Templates\**\*" Exclude="Templates\**\bin\**;Templates\**\obj\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Templates\.vs\**" />
+    <Content Remove="Templates\MFG601910 AU Custom Inventor Addin Basic Template\.vs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\obj\InventorAddIn.vbproj.nuget.dgspec.json" />
+    <Content Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\obj\project.assets.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include="Handout.pdf" />
+    <None Include="LICENSE" />
+    <None Include="Presentation.pdf" />
+    <None Include="README.md" />
+    <None Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\obj\Debug\.NETCoreApp,Version=v8.0.AssemblyAttributes.vb" />
+    <None Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\obj\Debug\.NETFramework,Version=v4.5.AssemblyAttributes.vb" />
+    <None Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\obj\Debug\InventorAddIn.AssemblyInfo.vb" />
+    <None Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\obj\Debug\InventorAddIn.AssemblyInfoInputs.cache" />
+    <None Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\obj\Debug\InventorAddIn.assets.cache" />
+    <None Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\obj\Debug\InventorAddIn.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\obj\Debug\InventorAddIn.vbproj.AssemblyReference.cache" />
+    <None Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\obj\Debug\InventorAddIn.vbproj.ResolveComReference.cache" />
+    <None Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\obj\InventorAddIn.vbproj.nuget.g.props" />
+    <None Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\obj\InventorAddIn.vbproj.nuget.g.targets" />
+    <None Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\obj\project.nuget.cache" />
+    <None Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\obj\Release\.NETCoreApp,Version=v8.0.AssemblyAttributes.vb" />
+    <None Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\obj\Release\.NETFramework,Version=v4.5.AssemblyAttributes.vb" />
+    <None Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\obj\Release\InventorAddIn.AssemblyInfo.vb" />
+    <None Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\obj\Release\InventorAddIn.AssemblyInfoInputs.cache" />
+    <None Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\obj\Release\InventorAddIn.assets.cache" />
+    <None Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\obj\Release\InventorAddIn.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\obj\Release\InventorAddIn.vbproj.AssemblyReference.cache" />
+    <None Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\obj\Release\InventorAddIn.vbproj.ResolveComReference.cache" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\bin\Debug\" />
+    <Folder Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\bin\Release\" />
+    <Folder Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\obj\Debug\refint\" />
+    <Folder Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\obj\Debug\ref\" />
+    <Folder Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\obj\Release\refint\" />
+    <Folder Include="Templates\MFG601910 AU Custom Inventor Addin Button Stacks Template\obj\Release\ref\" />
+  </ItemGroup>
+
+</Project>

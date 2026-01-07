@@ -2,11 +2,11 @@
 
 	<!-- Inventor Version -->
 	<PropertyGroup>
-		<InventorVersion>2026</InventorVersion>
+		<InventorVersion>INVENTOR_VERSION_PLACEHOLDER</InventorVersion>
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<TargetFramework>net8.0-windows</TargetFramework>
+		<TargetFramework>TARGET_FRAMEWORK_PLACEHOLDER</TargetFramework>
 		<!-- Need 'StartAction' & 'StartProgram' To Debug 'Library' 'OutputType' -->
 		<OutputType>Library</OutputType>
 		<StartAction>Program</StartAction>
@@ -60,9 +60,9 @@
 		</EmbeddedResource>
 	</ItemGroup>
 	<ItemGroup>
-		<!--<Content Include="PackageContents.xml">
+		<Content Include="PackageContents.xml">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>-->
+		</Content>
 		<Content Include="Autodesk.$(MSBuildProjectName).Inventor.addin">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
@@ -125,7 +125,7 @@
 
 	<!-- This 'Target' section acts as the post-build events. The newer 'SDK-style' version of a .target file. -->
 	<Target Name="BuildAddinOutputPath" AfterTargets="Build">
-		<!--<Copy SourceFiles="$(ProjectDir)PackageContents.xml" DestinationFolder="$(AddinOutputPath)\$(MSBuildProjectName).bundle\" />-->
+		<Copy SourceFiles="$(ProjectDir)PackageContents.xml" DestinationFolder="$(AddinOutputPath)\$(MSBuildProjectName).bundle\" />
 		<ItemGroup>
 			<AddinBundle Include="$(TargetDir)*.*" />
 		</ItemGroup>

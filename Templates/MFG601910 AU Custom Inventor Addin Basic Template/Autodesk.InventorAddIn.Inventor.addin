@@ -1,10 +1,10 @@
 <Addin Type="Standard">
   <!--Created for Autodesk Inventor Version 28.0-->
-  <ClassId>{$guid1$}</ClassId>
-  <ClientId>{$guid1$}</ClientId>
-  <DisplayName>$safeprojectname$</DisplayName>
-  <Description>$safeprojectname$</Description>
-  <Assembly>$safeprojectname$.dll</Assembly>
+  <ClassId>{{{guid}}}</ClassId>
+  <ClientId>{{{guid}}}</ClientId>
+  <DisplayName>{{ProjectName}}</DisplayName>
+  <Description>{{ProjectName}}</Description>
+  <Assembly>{{ProjectName}}.dll</Assembly>
   <LoadOnStartUp>1</LoadOnStartUp>
   <UserUnloadable>1</UserUnloadable>
   <Hidden>0</Hidden>
