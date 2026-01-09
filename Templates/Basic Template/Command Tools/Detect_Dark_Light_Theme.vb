@@ -2,6 +2,7 @@
 Imports System.IO
 Imports System.Windows.Forms
 Imports Inventor
+
 ''' <summary>
 ''' <para>
 ''' Creates a Button Definition
@@ -13,11 +14,10 @@ Imports Inventor
 ''' The sub within this module runs a utility to call an external rule when this button is clicked
 ''' </para>
 ''' </summary>
-''' 
 Module Detect_Dark_Light_Theme
 
     Function CreateButton(environment As String, CustomDrawingTab As RibbonTab, ribbonPanel As RibbonPanel,
-                          useLargeIcon As Boolean, isInButtonStack As Boolean) As ButtonDefinition
+                                 useLargeIcon As Boolean, isInButtonStack As Boolean) As ButtonDefinition
 
         'get the images to use for the button
         Dim largeIcon As IPictureDisp = PictureDispConverter.ToIPictureDisp(My.Resources.Dog_32)
@@ -42,25 +42,25 @@ Module Detect_Dark_Light_Theme
             toolTipImage = PictureDispConverter.ToIPictureDisp(My.Resources.Dog_32)
 
 #If #NETFRAMEWORK Then
-         toolTip_Expanded = Chr(149) & " This tool pops up the application balloon with a message" & vbLf &
-                                     Chr(149) & " Line2" & vbLf &
-                                     Chr(149) & " Line3" & vbLf &
-                                     Chr(149) & " Line4"
+            toolTip_Expanded = Chr(149) & " This tool pops up the application balloon with a message" & vbLf &
+                                                 Chr(149) & " Line2" & vbLf &
+                                                 Chr(149) & " Line3" & vbLf &
+                                                 Chr(149) & " Line4"
 #Else
          toolTip_Expanded = ChrW(149) & " This tool pops up the application balloon with a message" & vbLf &
                                      ChrW(149) & " Line2" & vbLf &
                                      ChrW(149) & " Line3" & vbLf &
                                      ChrW(149) & " Line4"
 #End If
-      End If
+        End If
 
 #End Region
 
         Dim buttonDef As ButtonDefinition
         buttonDef = CreateButtonDefintion.CreateButtonDef(environment, CustomDrawingTab, ribbonPanel, useLargeIcon,
-                                                            isInButtonStack, useProgressToolTip,
-                                                            buttonLabel, toolTip_Simple, toolTip_Expanded,
-                                                            standardIcon, largeIcon, toolTipImage)
+                                                                             isInButtonStack, useProgressToolTip,
+                                                                             buttonLabel, toolTip_Simple, toolTip_Expanded,
+                                                                             standardIcon, largeIcon, toolTipImage)
 
         Return buttonDef
 

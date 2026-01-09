@@ -9,11 +9,11 @@ Module CreateButtonDefintion
     ''' </summary> 
 
     Function CreateButtonDef(Environment As String, CustomTab As RibbonTab, ribbonPanelName As RibbonPanel, useLargeIcon As Boolean,
-                            isInButtonStack As Boolean, useProgressToolTip As Boolean,
-                            buttonLabel As String, toolTip_Simple As String, toolTip_Exapanded As String,
-                            standardIcon As stdole.IPictureDisp,
-                            largeIcon As stdole.IPictureDisp,
-                            toolTipImage As stdole.IPictureDisp) As ButtonDefinition
+                                    isInButtonStack As Boolean, useProgressToolTip As Boolean,
+                                    buttonLabel As String, toolTip_Simple As String, toolTip_Exapanded As String,
+                                    standardIcon As stdole.IPictureDisp,
+                                    largeIcon As stdole.IPictureDisp,
+                                    toolTipImage As stdole.IPictureDisp) As ButtonDefinition
 
         Dim ButtonNameNoSpaces = buttonLabel.Replace(vbNewLine, "_").Replace(vbLf, "_").Replace(vbCr, "_").Replace(" ", "_")
         Dim internalName As String = ButtonNameNoSpaces & "_" & g_addInClientID & "_Button_InternalName"
@@ -30,7 +30,7 @@ Module CreateButtonDefintion
 
         If toolButtonDef Is Nothing Then
             toolButtonDef = controlDefs.AddButtonDefinition(buttonLabel, internalName,
-                        CommandTypesEnum.kShapeEditCmdType, g_addInClientID)
+                            CommandTypesEnum.kShapeEditCmdType, g_addInClientID)
             System.Diagnostics.Debug.WriteLine("*******  " & toolButtonDef.InternalName & " button created")
         End If
 
@@ -69,7 +69,7 @@ Module CreateButtonDefintion
 
         Try
             toolButtonDef = controlDefs.AddButtonDefinition(buttonLabel, internalName,
-                                CommandTypesEnum.kEditMaskCmdType, g_addInClientID,,, standardIcon)
+                                      CommandTypesEnum.kEditMaskCmdType, g_addInClientID,,, standardIcon)
         Catch
 
         End Try

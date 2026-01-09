@@ -2,6 +2,7 @@
 Imports System.IO
 Imports System.Windows.Forms
 Imports Inventor
+
 ''' <summary>
 ''' <para>
 ''' Creates a Button Definition
@@ -13,7 +14,6 @@ Imports Inventor
 ''' The sub within this module defines the code to run when this button is clicked
 ''' </para>
 ''' </summary> 
-
 Module API_Help
 
     ''' <summary>
@@ -23,10 +23,9 @@ Module API_Help
     ''' <para>
     ''' Define the label, icons, tool tip, etc. for this button
     ''' </para>
-    ''' </summary> 
-
+    ''' </summary>
     Function CreateButton(environment As String, CustomDrawingTab As RibbonTab, ribbonPanel As RibbonPanel,
-                          useLargeIcon As Boolean, isInButtonStack As Boolean) As ButtonDefinition
+                                 useLargeIcon As Boolean, isInButtonStack As Boolean) As ButtonDefinition
 
         'get the images to use for the button
         Dim largeIcon As IPictureDisp = PictureDispConverter.ToIPictureDisp(My.Resources.Cat_32)
@@ -50,25 +49,25 @@ Module API_Help
             toolTipImage = PictureDispConverter.ToIPictureDisp(My.Resources.API_ToolTip)
 
 #If #NETFRAMEWORK Then
-         toolTip_Expanded = Chr(149) & " This tool opens the API help *.chm file in a seperate window" & vbLf &
-                                        "    Use the API help to find:" & vbLf &
-                                        Chr(149) & "       API Object Model Reference Information" & vbLf &
-                                        Chr(149) & "       Example Code"
+            toolTip_Expanded = Chr(149) & " This tool opens the API help *.chm file in a seperate window" & vbLf &
+                                                     "    Use the API help to find:" & vbLf &
+                                                     Chr(149) & "       API Object Model Reference Information" & vbLf &
+                                                     Chr(149) & "       Example Code"
 #Else
          toolTip_Expanded = ChrW(149) & " This tool opens the API help *.chm file in a seperate window" & vbLf &
                                         "    Use the API help to find:" & vbLf &
                                         ChrW(149) & "       API Object Model Reference Information" & vbLf &
                                         ChrW(149) & "       Example Code"
 #End If
-      End If
+        End If
 
 #End Region
 
         Dim buttonDef As ButtonDefinition
         buttonDef = CreateButtonDefintion.CreateButtonDef(environment, CustomDrawingTab, ribbonPanel, useLargeIcon,
-                                                                isInButtonStack, useProgressToolTip,
-                                                                buttonLabel, toolTip_Simple, toolTip_Expanded,
-                                                                standardIcon, largeIcon, toolTipImage)
+                                                                                  isInButtonStack, useProgressToolTip,
+                                                                                  buttonLabel, toolTip_Simple, toolTip_Expanded,
+                                                                                  standardIcon, largeIcon, toolTipImage)
 
         Return buttonDef
 
@@ -86,16 +85,16 @@ Module API_Help
         Dim Filename = "C:\Users\Public\Documents\Autodesk\Inventor " &
         Version & "\Local Help\ADMAPI_" & Build & "_0.chm"
 
-      If System.IO.File.Exists(Filename) = True Then
+        If System.IO.File.Exists(Filename) = True Then
 #If #NETFRAMEWORK Then
-         Process.Start(Filename)
+            Process.Start(Filename)
 #Else
          Process.Start(New ProcessStartInfo(Filename) With {.UseShellExecute = True})
 #End If
-      Else
-         MsgBox("File Does Not Exist" & vbLf & Filename)
-      End If
+        Else
+            MsgBox("File Does Not Exist" & vbLf & Filename)
+        End If
 
-   End Sub
+    End Sub
 
 End Module

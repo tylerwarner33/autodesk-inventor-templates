@@ -16,7 +16,7 @@ Module Welcome
         Dim UserName = Environ$("UserName")
         Dim AddinName = Reflection.Assembly.GetExecutingAssembly.GetName.Name.ToString
         MsgBox("My Name is " & AddinName & " , I'm an add-in." _
-               & vbLf & "I fired on the " & EventName & " event of:" & vbLf & DocName,, "Hello " & UserName)
+                 & vbLf & "I fired on the " & EventName & " event of:" & vbLf & DocName,, "Hello " & UserName)
 
     End Sub
 

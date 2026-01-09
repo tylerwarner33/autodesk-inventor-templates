@@ -1,135 +1,135 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
-	<!-- Inventor Version -->
-	<PropertyGroup>
-		<InventorVersion>INVENTOR_VERSION_PLACEHOLDER</InventorVersion>
-	</PropertyGroup>
+  <!-- Inventor Version -->
+  <PropertyGroup>
+    <InventorVersion>INVENTOR_VERSION_PLACEHOLDER</InventorVersion>
+  </PropertyGroup>
 
-	<PropertyGroup>
-		<TargetFramework>TARGET_FRAMEWORK_PLACEHOLDER</TargetFramework>
-		<!-- Need 'StartAction' & 'StartProgram' To Debug 'Library' 'OutputType' -->
-		<OutputType>Library</OutputType>
-		<StartAction>Program</StartAction>
-		<!-- For Debugging Inventor Extension: Primary Method -->
-		<StartProgram>$(ProgramFiles)\Autodesk\Inventor $(InventorVersion)\Bin\Inventor.exe</StartProgram>
+  <PropertyGroup>
+    <TargetFramework>TARGET_FRAMEWORK_PLACEHOLDER</TargetFramework>
+    <!-- Need 'StartAction' & 'StartProgram' To Debug 'Library' 'OutputType' -->
+    <OutputType>Library</OutputType>
+    <StartAction>Program</StartAction>
+    <!-- For Debugging Inventor Extension: Primary Method -->
+    <StartProgram>$(ProgramFiles)\Autodesk\Inventor $(InventorVersion)\Bin\Inventor.exe</StartProgram>
 
-		<AssemblyTitle>$(MSBuildProjectName)</AssemblyTitle>
-		<Description>$(MSBuildProjectName)</Description>
-		<Company>Autodesk, Inc.</Company>
-		<Product>$(MSBuildProjectName)</Product>
-		<Copyright>Copyright © Autodesk, Inc. 2026</Copyright>
-		<Version>1.0.0</Version>
-		<FileVersion>1.0.0</FileVersion>
+    <AssemblyTitle>$(MSBuildProjectName)</AssemblyTitle>
+    <Description>$(MSBuildProjectName)</Description>
+    <Company>Autodesk, Inc.</Company>
+    <Product>$(MSBuildProjectName)</Product>
+    <Copyright>Copyright © Autodesk, Inc. 2026</Copyright>
+    <Version>1.0.0</Version>
+    <FileVersion>1.0.0</FileVersion>
 
-		<!-- SDK-Style Project Properties -->
-		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-		<GenerateDependencyFile>true</GenerateDependencyFile>
-		<GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
-		<Nullable>enable</Nullable>
-		<UseWindowsForms>true</UseWindowsForms>
-		<UseWPF>true</UseWPF>
+    <!-- SDK-Style Project Properties -->
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateDependencyFile>true</GenerateDependencyFile>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
 
-		<!-- Nuget Package Library Files May Not Copy To Output Path Without This -->
-		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-	</PropertyGroup>
+    <!-- Nuget Package Library Files May Not Copy To Output Path Without This -->
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
 
-	<!-- Nuget Packages -->
-	<ItemGroup>
-		<PackageReference Include="stdole" Version="17.14.40260" />
-	</ItemGroup>
+  <!-- Nuget Packages -->
+  <ItemGroup>
+    <PackageReference Include="stdole" Version="17.14.40260" />
+  </ItemGroup>
 
-	<!-- Assembly References -->
-	<ItemGroup>
-		<Reference Include="Autodesk.Inventor.Interop">
-			<HintPath>$(ProgramFiles)\Autodesk\Inventor $(InventorVersion)\Bin\Public Assemblies\Autodesk.Inventor.Interop.dll</HintPath>
-			<EmbedInteropTypes>True</EmbedInteropTypes>
-		</Reference>
-	</ItemGroup>
+  <!-- Assembly References -->
+  <ItemGroup>
+    <Reference Include="Autodesk.Inventor.Interop">
+      <HintPath>$(ProgramFiles)\Autodesk\Inventor $(InventorVersion)\Bin\Public Assemblies\Autodesk.Inventor.Interop.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+  </ItemGroup>
 
-	<!-- File References -->
-	<ItemGroup>
-		<!--<Compile Update="My Project\Resources.Designer.vb">
+  <!-- File References -->
+  <ItemGroup>
+    <!--<Compile Update="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>-->
-		<EmbeddedResource Update="My Project\Resources.resx">
-			<SubType>Designer</SubType>
-		</EmbeddedResource>
-	</ItemGroup>
-	<ItemGroup>
-		<Content Include="PackageContents.xml">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
-		<Content Include="Autodesk.$(MSBuildProjectName).Inventor.addin">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
-		<Content Include="$(MSBuildProjectName).X.manifest">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
-		<None Include="README.md" />
-	</ItemGroup>
+    <EmbeddedResource Update="My Project\Resources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PackageContents.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Autodesk.$(MSBuildProjectName).Inventor.addin">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildProjectName).X.manifest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="README.md" />
+  </ItemGroup>
 
-	<ItemGroup>
-		<EmbeddedResource Include="Resources\API_ToolTip.png" />
-		<EmbeddedResource Include="Resources\AU_ToolTip.PNG" />
-		<EmbeddedResource Include="Resources\Bird_16.png" />
-		<EmbeddedResource Include="Resources\Bird_32.png" />
-		<EmbeddedResource Include="Resources\BlueColor_16.png" />
-		<EmbeddedResource Include="Resources\BlueColor_32.png" />
-		<EmbeddedResource Include="Resources\Camel_16.png" />
-		<EmbeddedResource Include="Resources\Camel_32.png" />
-		<EmbeddedResource Include="Resources\Cat_16.png" />
-		<EmbeddedResource Include="Resources\Cat_32.png" />
-		<EmbeddedResource Include="Resources\DefaultColor_16.png" />
-		<EmbeddedResource Include="Resources\DefaultColor_32.png" />
-		<EmbeddedResource Include="Resources\Dog_16.png" />
-		<EmbeddedResource Include="Resources\Dog_32.png" />
-		<EmbeddedResource Include="Resources\Elephant_16.png" />
-		<EmbeddedResource Include="Resources\Elephant_32.png" />
-		<EmbeddedResource Include="Resources\Horse_16.png" />
-		<EmbeddedResource Include="Resources\Horse_32.png" />
-		<EmbeddedResource Include="Resources\Mouse_16.png" />
-		<EmbeddedResource Include="Resources\Mouse_32.png" />
-		<EmbeddedResource Include="Resources\Multi_16.png" />
-		<EmbeddedResource Include="Resources\Multi_32.png" />
-		<EmbeddedResource Include="Resources\One_16.png" />
-		<EmbeddedResource Include="Resources\One_32.png" />
-		<EmbeddedResource Include="Resources\Rooster_16.png" />
-		<EmbeddedResource Include="Resources\Rooster_32.png" />
-		<EmbeddedResource Include="Resources\Sheet_Color_ToolTip.png" />
-		<EmbeddedResource Include="Resources\Snake_16.png" />
-		<EmbeddedResource Include="Resources\Snake_32.png" />
-		<EmbeddedResource Include="Resources\Three_16.png" />
-		<EmbeddedResource Include="Resources\Three_32.png" />
-		<EmbeddedResource Include="Resources\Two_16.png" />
-		<EmbeddedResource Include="Resources\Two_32.png" />
-		<EmbeddedResource Include="Resources\WhiteColor_16.png" />
-		<EmbeddedResource Include="Resources\WhiteColor_32.png" />
-		<EmbeddedResource Include="Resources\Zero_16.png" />
-		<EmbeddedResource Include="Resources\Zero_32.png" />
-	</ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\API_ToolTip.png" />
+    <EmbeddedResource Include="Resources\AU_ToolTip.PNG" />
+    <EmbeddedResource Include="Resources\Bird_16.png" />
+    <EmbeddedResource Include="Resources\Bird_32.png" />
+    <EmbeddedResource Include="Resources\BlueColor_16.png" />
+    <EmbeddedResource Include="Resources\BlueColor_32.png" />
+    <EmbeddedResource Include="Resources\Camel_16.png" />
+    <EmbeddedResource Include="Resources\Camel_32.png" />
+    <EmbeddedResource Include="Resources\Cat_16.png" />
+    <EmbeddedResource Include="Resources\Cat_32.png" />
+    <EmbeddedResource Include="Resources\DefaultColor_16.png" />
+    <EmbeddedResource Include="Resources\DefaultColor_32.png" />
+    <EmbeddedResource Include="Resources\Dog_16.png" />
+    <EmbeddedResource Include="Resources\Dog_32.png" />
+    <EmbeddedResource Include="Resources\Elephant_16.png" />
+    <EmbeddedResource Include="Resources\Elephant_32.png" />
+    <EmbeddedResource Include="Resources\Horse_16.png" />
+    <EmbeddedResource Include="Resources\Horse_32.png" />
+    <EmbeddedResource Include="Resources\Mouse_16.png" />
+    <EmbeddedResource Include="Resources\Mouse_32.png" />
+    <EmbeddedResource Include="Resources\Multi_16.png" />
+    <EmbeddedResource Include="Resources\Multi_32.png" />
+    <EmbeddedResource Include="Resources\One_16.png" />
+    <EmbeddedResource Include="Resources\One_32.png" />
+    <EmbeddedResource Include="Resources\Rooster_16.png" />
+    <EmbeddedResource Include="Resources\Rooster_32.png" />
+    <EmbeddedResource Include="Resources\Sheet_Color_ToolTip.png" />
+    <EmbeddedResource Include="Resources\Snake_16.png" />
+    <EmbeddedResource Include="Resources\Snake_32.png" />
+    <EmbeddedResource Include="Resources\Three_16.png" />
+    <EmbeddedResource Include="Resources\Three_32.png" />
+    <EmbeddedResource Include="Resources\Two_16.png" />
+    <EmbeddedResource Include="Resources\Two_32.png" />
+    <EmbeddedResource Include="Resources\WhiteColor_16.png" />
+    <EmbeddedResource Include="Resources\WhiteColor_32.png" />
+    <EmbeddedResource Include="Resources\Zero_16.png" />
+    <EmbeddedResource Include="Resources\Zero_32.png" />
+  </ItemGroup>
 
-	<!-- This 'PropertyGroup' section specifies where the plugin is being installed. -->
-	<PropertyGroup>
-		<!-- Inventor Plugin Folder - Per User, Version Dependent -->
-		<AddinOutputPath>$(AppData)\Autodesk\Inventor $(InventorVersion)\Addins</AddinOutputPath>
-	</PropertyGroup>
+  <!-- This 'PropertyGroup' section specifies where the plugin is being installed. -->
+  <PropertyGroup>
+    <!-- Inventor Plugin Folder - Per User, Version Dependent -->
+    <AddinOutputPath>$(AppData)\Autodesk\Inventor $(InventorVersion)\Addins</AddinOutputPath>
+  </PropertyGroup>
 
-	<!-- This 'Target' section acts as the post-clean events. The newer 'SDK-style' version of a .target file. -->
-	<Target Name="CleanAddinOutputPath" AfterTargets="Clean">
-		<RemoveDir Directories="$(AddinOutputPath)\$(MSBuildProjectName).bundle\" />
-	</Target>
+  <!-- This 'Target' section acts as the post-clean events. The newer 'SDK-style' version of a .target file. -->
+  <Target Name="CleanAddinOutputPath" AfterTargets="Clean">
+    <RemoveDir Directories="$(AddinOutputPath)\$(MSBuildProjectName).bundle\" />
+  </Target>
 
-	<!-- This 'Target' section acts as the post-build events. The newer 'SDK-style' version of a .target file. -->
-	<Target Name="BuildAddinOutputPath" AfterTargets="Build">
-		<Copy SourceFiles="$(ProjectDir)PackageContents.xml" DestinationFolder="$(AddinOutputPath)\$(MSBuildProjectName).bundle\" />
-		<ItemGroup>
-			<AddinBundle Include="$(TargetDir)*.*" />
-		</ItemGroup>
-		<Copy SourceFiles="@(AddinBundle)" DestinationFolder="$(AddinOutputPath)\$(MSBuildProjectName).bundle\Contents\" />
-	</Target>
+  <!-- This 'Target' section acts as the post-build events. The newer 'SDK-style' version of a .target file. -->
+  <Target Name="BuildAddinOutputPath" AfterTargets="Build">
+    <Copy SourceFiles="$(ProjectDir)PackageContents.xml" DestinationFolder="$(AddinOutputPath)\$(MSBuildProjectName).bundle\" />
+    <ItemGroup>
+      <AddinBundle Include="$(TargetDir)*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(AddinBundle)" DestinationFolder="$(AddinOutputPath)\$(MSBuildProjectName).bundle\Contents\" />
+  </Target>
 
 </Project>

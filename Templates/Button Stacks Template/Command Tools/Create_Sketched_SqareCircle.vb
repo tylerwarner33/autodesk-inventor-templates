@@ -31,8 +31,8 @@ Module Create_Sketched_SqareCircle
             toolTipImage = PictureDispConverter.ToIPictureDisp(My.Resources.AU_ToolTip)
 
 #If #NETFRAMEWORK Then
-         toolTip_Expanded =
-         149) & " Line1" & vbLf &
+            toolTip_Expanded =
+            149) & " Line1" & vbLf &
                                      Chr(149) & " Line2" & vbLf &
                                      Chr(149) & " Line3" & vbLf &
                                      Chr(149) & " Line4"

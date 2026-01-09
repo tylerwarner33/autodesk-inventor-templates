@@ -32,17 +32,17 @@ Module CMDList
             toolTipImage = PictureDispConverter.ToIPictureDisp(My.Resources.AU_ToolTip)
 
 #If #NETFRAMEWORK Then
-         toolTip_Expanded = Chr(149) & "  This tool creates a text file and writes all the command information out" & vbLf &
-                                 Chr(149) & " Line2" & vbLf &
-                                 Chr(149) & " Line3" & vbLf &
-                                 Chr(149) & " Line4"
+            toolTip_Expanded = Chr(149) & "  This tool creates a text file and writes all the command information out" & vbLf &
+                                    Chr(149) & " Line2" & vbLf &
+                                    Chr(149) & " Line3" & vbLf &
+                                    Chr(149) & " Line4"
 #Else
          toolTip_Expanded = ChrW(149) & "  This tool creates a text file and writes all the command information out" & vbLf &
                                  ChrW(149) & " Line2" & vbLf &
                                  ChrW(149) & " Line3" & vbLf &
                                  ChrW(149) & " Line4"
 #End If
-      End If
+        End If
 
 #End Region
 
@@ -86,31 +86,31 @@ Module CMDList
         objWriter.WriteLine("Use Example:")
         objWriter.WriteLine("1) Find the command in the list such as:")
         objWriter.WriteLine("             AppViewCubeHomeCmd ")
-      objWriter.WriteLine("2) Then add it to the command manager line such as this, and use this line in your code:")
+        objWriter.WriteLine("2) Then add it to the command manager line such as this, and use this line in your code:")
 #If #NETFRAMEWORK Then
-      objWriter.WriteLine("            ThisApplication.CommandManager.ControlDefinitions.Item(" & Chr(34) & "AppViewCubeHomeCmd" & Chr(34) & ").Execute")
+        objWriter.WriteLine("            ThisApplication.CommandManager.ControlDefinitions.Item(" & Chr(34) & "AppViewCubeHomeCmd" & Chr(34) & ").Execute")
 #Else
       objWriter.WriteLine("            ThisApplication.CommandManager.ControlDefinitions.Item(" & ChrW(34) & "AppViewCubeHomeCmd" & ChrW(34) & ").Execute")
 #End If
-      objWriter.WriteLine("____________________________________________________________________________________")
+        objWriter.WriteLine("____________________________________________________________________________________")
         objWriter.WriteLine("")
 
         For Each oControlDef In oControlDefs
-         If oControlDef.DescriptionText = "" Then
-            objWriter.WriteLine(oControlDef.InternalName)
-         Else
+            If oControlDef.DescriptionText = "" Then
+                objWriter.WriteLine(oControlDef.InternalName)
+            Else
 #If #NETFRAMEWORK Then
-            objWriter.WriteLine(oControlDef.InternalName & vbTab & vbTab & vbTab & vbTab & vbTab & vbTab &
-"  " & Chr(34) & oControlDef.DescriptionText & Chr(34))
+                objWriter.WriteLine(oControlDef.InternalName & vbTab & vbTab & vbTab & vbTab & vbTab & vbTab &
+    "  " & Chr(34) & oControlDef.DescriptionText & Chr(34))
 #Else
             objWriter.WriteLine(oControlDef.InternalName & vbTab & vbTab & vbTab & vbTab & vbTab & vbTab &
 "  " & ChrW(34) & oControlDef.DescriptionText & ChrW(34))
 #End If
-         End If
+            End If
         Next
         objWriter.Close()
 #If #NETFRAMEWORK Then
-      Process.Start(sPath)
+        Process.Start(sPath)
 #Else
          Process.Start(New ProcessStartInfo(sPath) With {.UseShellExecute = True})
 #End If
@@ -118,5 +118,5 @@ Module CMDList
 
 
 
-   End Sub
+    End Sub
 End Module

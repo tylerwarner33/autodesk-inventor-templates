@@ -25,11 +25,11 @@ Module Run_External_iLogic_Rule
         Catch ex As Exception
 
             MsgBox("Error launching external rule: " & vbLf & "     " & ExternalRuleName _
-                   & vbLf & vbLf & "Ensure the iLogic rule exists, and that the" _
-                   & vbLf & "configuration includes the path to the rules." _
-                   & vbLf & vbLf & "see Tools tab > Options flyout button > iLogic Configuration button" _
-                   & vbLf & "    If needed, add an external rules folder path," _
-                   & vbLf & "    and ensure that the rule is found in this folder.")
+                     & vbLf & vbLf & "Ensure the iLogic rule exists, and that the" _
+                     & vbLf & "configuration includes the path to the rules." _
+                     & vbLf & vbLf & "see Tools tab > Options flyout button > iLogic Configuration button" _
+                     & vbLf & "    If needed, add an external rules folder path," _
+                     & vbLf & "    and ensure that the rule is found in this folder.")
             Return
 
         End Try

@@ -26,7 +26,7 @@ Friend MustInherit Class Button
 #Region "Methods"
 
     Public Sub New(ByVal Environment As String, CustomDrawingTab As RibbonTab,
-                   RibbonPanel As RibbonPanel, useLargeIcon As Boolean, isInButtonStack As Boolean)
+                        RibbonPanel As RibbonPanel, useLargeIcon As Boolean, isInButtonStack As Boolean)
 
         Try
             'get the images to use for the button
@@ -45,9 +45,9 @@ Friend MustInherit Class Button
 
             'create button definition
             m_buttonDefinition = CreateButtonDefintion.CreateButtonDef(Environment, CustomDrawingTab, RibbonPanel, useLargeIcon,
-                                                            isInButtonStack, useProgressToolTip,
-                                                            buttonLabel, toolTip_Simple, toolTip_Expanded,
-                                                            standardIcon, largeIcon, toolTipImage)
+                                                                            isInButtonStack, useProgressToolTip,
+                                                                            buttonLabel, toolTip_Simple, toolTip_Expanded,
+                                                                            standardIcon, largeIcon, toolTipImage)
             'enable the button
             m_buttonDefinition.Enabled = True
 

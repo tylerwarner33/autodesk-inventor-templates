@@ -39,17 +39,17 @@ Module API_Help
             toolTipImage = PictureDispConverter.ToIPictureDisp(My.Resources.API_ToolTip)
 
 #If #NETFRAMEWORK Then
-         toolTip_Expanded = Chr(149) & " This tool opens the API help *.chm file in a seperate window" & vbLf &
-                                     Chr(149) & " Line2" & vbLf &
-                                     Chr(149) & " Line3" & vbLf &
-                                     Chr(149) & " Line4"
+            toolTip_Expanded = Chr(149) & " This tool opens the API help *.chm file in a seperate window" & vbLf &
+                                        Chr(149) & " Line2" & vbLf &
+                                        Chr(149) & " Line3" & vbLf &
+                                        Chr(149) & " Line4"
 #Else
          toolTip_Expanded = ChrW(149) & " This tool opens the API help *.chm file in a seperate window" & vbLf &
                                      ChrW(149) & " Line2" & vbLf &
                                      ChrW(149) & " Line3" & vbLf &
                                      ChrW(149) & " Line4"
 #End If
-      End If
+        End If
 
 #End Region
 
@@ -75,16 +75,16 @@ Module API_Help
         Dim Filename = "C:\Users\Public\Documents\Autodesk\Inventor " &
         Version & "\Local Help\ADMAPI_" & Build & "_0.chm"
 
-      If System.IO.File.Exists(Filename) = True Then
+        If System.IO.File.Exists(Filename) = True Then
 #If #NETFRAMEWORK Then
-         Process.Start(Filename)
+            Process.Start(Filename)
 #Else
          Process.Start(New ProcessStartInfo(Filename) With {.UseShellExecute = True})
 #End If
-      Else
-         MsgBox("File Does Not Exist" & vbLf & Filename)
-      End If
+        Else
+            MsgBox("File Does Not Exist" & vbLf & Filename)
+        End If
 
-   End Sub
+    End Sub
 
 End Module

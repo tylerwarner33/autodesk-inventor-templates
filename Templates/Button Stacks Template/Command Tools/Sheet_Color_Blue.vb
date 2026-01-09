@@ -28,17 +28,17 @@ Module Sheet_Color_Blue
             toolTipImage = PictureDispConverter.ToIPictureDisp(My.Resources.AU_ToolTip)
 
 #If #NETFRAMEWORK Then
-         toolTip_Expanded = Chr(149) & " Line1" & vbLf &
-                                     Chr(149) & " Line2" & vbLf &
-                                     Chr(149) & " Line3" & vbLf &
-                                     Chr(149) & " Line4"
+            toolTip_Expanded = Chr(149) & " Line1" & vbLf &
+                                        Chr(149) & " Line2" & vbLf &
+                                        Chr(149) & " Line3" & vbLf &
+                                        Chr(149) & " Line4"
 #Else
          toolTip_Expanded = ChrW(149) & " Line1" & vbLf &
                                      ChrW(149) & " Line2" & vbLf &
                                      ChrW(149) & " Line3" & vbLf &
                                      ChrW(149) & " Line4"
 #End If
-      End If
+        End If
 
 #End Region
 

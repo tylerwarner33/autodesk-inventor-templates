@@ -36,26 +36,26 @@ Module Detect_Dark_Light_Theme
         'set to true to use a progressive tool tip, and false to a simple tool tip
         Dim useProgressToolTip As Boolean = False
 
-      'only used if useProgressToolTip = true
-      'If useProgressToolTip = True Then
-      '    toolTipImage = PictureDispConverter.ToIPictureDisp(My.Resources.YourToolTipImageNameHere)
+        'only used if useProgressToolTip = true
+        'If useProgressToolTip = True Then
+        '    toolTipImage = PictureDispConverter.ToIPictureDisp(My.Resources.YourToolTipImageNameHere)
 
 #If #NETFRAMEWORK Then
-      '    toolTip_Expanded = Chr(149) & " This tool pops up the application balloon with a message" & vbLf &
-      '                                Chr(149) & " Line2" & vbLf &
-      '                                Chr(149) & " Line3" & vbLf &
-      '                                Chr(149) & " Line4"
+        '    toolTip_Expanded = Chr(149) & " This tool pops up the application balloon with a message" & vbLf &
+        '                                Chr(149) & " Line2" & vbLf &
+        '                                Chr(149) & " Line3" & vbLf &
+        '                                Chr(149) & " Line4"
 #Else
       '    toolTip_Expanded = ChrW(149) & " This tool pops up the application balloon with a message" & vbLf &
       '                                ChrW(149) & " Line2" & vbLf &
       '                                ChrW(149) & " Line3" & vbLf &
       '                                ChrW(149) & " Line4"
 #End If
-      'End If
+        'End If
 
 #End Region
 
-      Dim buttonDef As ButtonDefinition
+        Dim buttonDef As ButtonDefinition
         buttonDef = CreateButtonDefintion.CreateButtonDef(environment, CustomDrawingTab, ribbonPanel, useLargeIcon,
                                                             isInButtonStack, useProgressToolTip,
                                                             buttonLabel, toolTip_Simple, toolTip_Expanded,
