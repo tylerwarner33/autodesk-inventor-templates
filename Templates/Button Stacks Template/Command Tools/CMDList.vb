@@ -31,17 +31,10 @@ Module CMDList
         If useProgressToolTip = True Then
             toolTipImage = PictureDispConverter.ToIPictureDisp(My.Resources.AU_ToolTip)
 
-#If #NETFRAMEWORK Then
-            toolTip_Expanded = Chr(149) & "  This tool creates a text file and writes all the command information out" & vbLf &
-                                    Chr(149) & " Line2" & vbLf &
-                                    Chr(149) & " Line3" & vbLf &
-                                    Chr(149) & " Line4"
-#Else
-         toolTip_Expanded = ChrW(149) & "  This tool creates a text file and writes all the command information out" & vbLf &
-                                 ChrW(149) & " Line2" & vbLf &
-                                 ChrW(149) & " Line3" & vbLf &
-                                 ChrW(149) & " Line4"
-#End If
+            toolTip_Expanded = ChrW(&H2022) & "  This tool creates a text file and writes all the command information out" & vbLf &
+                                    ChrW(&H2022) & " Line2" & vbLf &
+                                    ChrW(&H2022) & " Line3" & vbLf &
+                                    ChrW(&H2022) & " Line4"
         End If
 
 #End Region
@@ -87,11 +80,7 @@ Module CMDList
         objWriter.WriteLine("1) Find the command in the list such as:")
         objWriter.WriteLine("             AppViewCubeHomeCmd ")
         objWriter.WriteLine("2) Then add it to the command manager line such as this, and use this line in your code:")
-#If #NETFRAMEWORK Then
-        objWriter.WriteLine("            ThisApplication.CommandManager.ControlDefinitions.Item(" & Chr(34) & "AppViewCubeHomeCmd" & Chr(34) & ").Execute")
-#Else
-      objWriter.WriteLine("            ThisApplication.CommandManager.ControlDefinitions.Item(" & ChrW(34) & "AppViewCubeHomeCmd" & ChrW(34) & ").Execute")
-#End If
+        objWriter.WriteLine("            ThisApplication.CommandManager.ControlDefinitions.Item(" & ChrW(&H22) & "AppViewCubeHomeCmd" & ChrW(&H22) & ").Execute")
         objWriter.WriteLine("____________________________________________________________________________________")
         objWriter.WriteLine("")
 
@@ -99,13 +88,8 @@ Module CMDList
             If oControlDef.DescriptionText = "" Then
                 objWriter.WriteLine(oControlDef.InternalName)
             Else
-#If #NETFRAMEWORK Then
                 objWriter.WriteLine(oControlDef.InternalName & vbTab & vbTab & vbTab & vbTab & vbTab & vbTab &
-    "  " & Chr(34) & oControlDef.DescriptionText & Chr(34))
-#Else
-            objWriter.WriteLine(oControlDef.InternalName & vbTab & vbTab & vbTab & vbTab & vbTab & vbTab &
-"  " & ChrW(34) & oControlDef.DescriptionText & ChrW(34))
-#End If
+    "  " & ChrW(&H22) & oControlDef.DescriptionText & ChrW(&H22))
             End If
         Next
         objWriter.Close()

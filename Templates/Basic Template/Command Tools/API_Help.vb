@@ -48,17 +48,10 @@ Module API_Help
         If useProgressToolTip = True Then
             toolTipImage = PictureDispConverter.ToIPictureDisp(My.Resources.API_ToolTip)
 
-#If #NETFRAMEWORK Then
-            toolTip_Expanded = Chr(149) & " This tool opens the API help *.chm file in a seperate window" & vbLf &
-                                                     "    Use the API help to find:" & vbLf &
-                                                     Chr(149) & "       API Object Model Reference Information" & vbLf &
-                                                     Chr(149) & "       Example Code"
-#Else
-         toolTip_Expanded = ChrW(149) & " This tool opens the API help *.chm file in a seperate window" & vbLf &
-                                        "    Use the API help to find:" & vbLf &
-                                        ChrW(149) & "       API Object Model Reference Information" & vbLf &
-                                        ChrW(149) & "       Example Code"
-#End If
+            toolTip_Expanded = ChrW(&H2022) & " This tool opens the API help *.chm file in a seperate window" & vbLf &
+                                           "    Use the API help to find:" & vbLf &
+                                           ChrW(&H2022) & "       API Object Model Reference Information" & vbLf &
+                                           ChrW(&H2022) & "       Example Code"
         End If
 
 #End Region

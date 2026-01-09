@@ -30,17 +30,10 @@ Module ApplicationBalloonNotice
         If useProgressToolTip = True Then
             toolTipImage = PictureDispConverter.ToIPictureDisp(My.Resources.AU_ToolTip)
 
-#If #NETFRAMEWORK Then
-            toolTip_Expanded = Chr(149) & " This tool pops up the application balloon with a message" & vbLf &
-                                    Chr(149) & " Line2" & vbLf &
-                                    Chr(149) & " Line3" & vbLf &
-                                    Chr(149) & " Line4"
-#Else
-         toolTip_Expanded = ChrW(149) & " This tool pops up the application balloon with a message" & vbLf &
-                                 ChrW(149) & " Line2" & vbLf &
-                                 ChrW(149) & " Line3" & vbLf &
-                                 ChrW(149) & " Line4"
-#End If
+            toolTip_Expanded = ChrW(&H2022) & " This tool pops up the application balloon with a message" & vbLf &
+                                    ChrW(&H2022) & " Line2" & vbLf &
+                                    ChrW(&H2022) & " Line3" & vbLf &
+                                    ChrW(&H2022) & " Line4"
         End If
 
 #End Region
