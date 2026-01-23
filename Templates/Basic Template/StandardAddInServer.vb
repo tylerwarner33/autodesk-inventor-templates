@@ -201,23 +201,26 @@ Namespace InventorAddIn
 
 #Region "ApplicationAddInServer Members"
 
-        ' This method is called by Inventor when it loads the AddIn. The AddInSiteObject provides access  
-        ' to the Inventor Application object. The FirstTime flag indicates if the AddIn is loaded for
-        ' the first time. However, with the introduction of the ribbon this argument is always true.
+        ''' <summary>
+        ''' This method is called by Inventor when it loads the AddIn.
+        ''' The AddInSiteObject provides access to the Inventor Application object.
+        ''' The FirstTime flag indicates if the AddIn is loaded for the first time.
+        ''' However, with the introduction of the ribbon this argument is always true.
+        ''' </summary>
         Public Sub Activate(ByVal addInSiteObject As Inventor.ApplicationAddInSite, ByVal firstTime As Boolean) Implements Inventor.ApplicationAddInServer.Activate
 
             Dim AddinName = Reflection.Assembly.GetExecutingAssembly.GetName.Name.ToString
 
-            ' Initialize AddIn members.
+            ' Initialize add-in members.
             g_inventorApplication = addInSiteObject.Application
 
-            ' Connect to events 
+            ' Connect to events.
             UiEvents = g_inventorApplication.UserInterfaceManager.UserInterfaceEvents
             UserInputEvents = g_inventorApplication.CommandManager.UserInputEvents
             InvTransactionEvents = g_inventorApplication.TransactionManager.TransactionEvents
             InventorApplicationEvents = g_inventorApplication.ApplicationEvents
 
-            'add event handlers
+            ' Add event handlers.
             AddHandler InventorApplicationEvents.OnNewDocument, AddressOf Me.Events_OnNewDocument
             AddHandler InventorApplicationEvents.OnOpenDocument, AddressOf Me.Events_OnOpenDocument
             AddHandler InventorApplicationEvents.OnSaveDocument, AddressOf Me.Events_OnSaveDocument
@@ -230,6 +233,8 @@ Namespace InventorAddIn
             'AddHandler InvTransactionEvents.OnRedo, AddressOf Me.Events_OnRedo
             'AddHandler InvTransactionEvents.OnDelete, AddressOf Me.Events_OnDelete
 
+            ' Register external rules path with iLogic
+            RegisterExternalRulesPathOnActivation()
 
 #Region "Activate user interface"
             ' Add to the user interface, if it's the first time.

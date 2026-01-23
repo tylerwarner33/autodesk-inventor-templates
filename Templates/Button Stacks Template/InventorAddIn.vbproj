@@ -127,9 +127,9 @@
   <Target Name="BuildAddinOutputPath" AfterTargets="Build">
     <Copy SourceFiles="$(ProjectDir)PackageContents.xml" DestinationFolder="$(AddinOutputPath)\$(MSBuildProjectName).bundle\" />
     <ItemGroup>
-      <AddinBundle Include="$(TargetDir)*.*" />
+      <AddinBundle Include="$(TargetDir)**\*" Exclude="$(TargetDir)PackageContents.xml" />
     </ItemGroup>
-    <Copy SourceFiles="@(AddinBundle)" DestinationFolder="$(AddinOutputPath)\$(MSBuildProjectName).bundle\Contents\" />
+    <Copy SourceFiles="@(AddinBundle)" DestinationFolder="$(AppPluginOutputPath)\$(MSBuildProjectName).bundle\Contents\%(RecursiveDir)" />
   </Target>
 
 </Project>

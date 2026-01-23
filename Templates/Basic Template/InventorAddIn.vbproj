@@ -70,6 +70,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="README.md" />
+    <Content Include="External Rules\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -83,21 +86,21 @@
   <!-- This 'PropertyGroup' section specifies where the plugin is being installed. -->
   <PropertyGroup>
     <!-- Inventor Plugin Folder - Per User, Version Dependent -->
-    <AppPluginOutputPath>$(AppData)\Autodesk\Inventor $(InventorVersion)\Addins</AppPluginOutputPath>
+    <AddinOutputPath>$(AppData)\Autodesk\Inventor $(InventorVersion)\Addins</AddinOutputPath>
   </PropertyGroup>
 
   <!-- This 'Target' section acts as the post-clean events. The newer 'SDK-style' version of a .target file. -->
   <Target Name="CleanAddinOutputPath" AfterTargets="Clean">
-    <RemoveDir Directories="$(AppPluginOutputPath)\$(MSBuildProjectName).bundle\" />
+    <RemoveDir Directories="$(AddinOutputPath)\$(MSBuildProjectName).bundle\" />
   </Target>
 
   <!-- This 'Target' section acts as the post-build events. The newer 'SDK-style' version of a .target file. -->
   <Target Name="BuildAddinOutputPath" AfterTargets="Build">
-    <Copy SourceFiles="$(ProjectDir)PackageContents.xml" DestinationFolder="$(AppPluginOutputPath)\$(MSBuildProjectName).bundle\" />
+    <Copy SourceFiles="$(ProjectDir)PackageContents.xml" DestinationFolder="$(AddinOutputPath)\$(MSBuildProjectName).bundle\" />
     <ItemGroup>
-      <AddinBundle Include="$(TargetDir)*.*" />
+      <AddinBundle Include="$(TargetDir)**\*" Exclude="$(TargetDir)PackageContents.xml" />
     </ItemGroup>
-    <Copy SourceFiles="@(AddinBundle)" DestinationFolder="$(AppPluginOutputPath)\$(MSBuildProjectName).bundle\Contents\" />
+    <Copy SourceFiles="@(AddinBundle)" DestinationFolder="$(AddinOutputPath)\$(MSBuildProjectName).bundle\Contents\%(RecursiveDir)" />
   </Target>
 
 </Project>
