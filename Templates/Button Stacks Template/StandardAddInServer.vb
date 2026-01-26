@@ -407,6 +407,9 @@ Namespace InventorAddIn
             'AddHandler InvTransactionEvents.OnRedo, AddressOf Me.Events_OnRedo
             'AddHandler InvTransactionEvents.OnDelete, AddressOf Me.Events_OnDelete
 
+            ' Register external rules path with iLogic
+            RegisterExternalRulesPathOnActivation()
+
 #Region "Activate user interface"
 
             ' Add to the user interface, if it's the first time.
