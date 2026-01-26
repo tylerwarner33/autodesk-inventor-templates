@@ -17,14 +17,12 @@
     <Description>Project templates for creating Autodesk Inventor add-ins.</Description>
     <PackageTags>dotnet-new;templates;autodesk;inventor;add-in;vb;vbnet</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageProjectUrl>https://github.com/tylerwarner33/autodesk-inventor-templates</PackageProjectUrl>
     <RepositoryUrl>https://github.com/tylerwarner33/autodesk-inventor-templates</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="LICENSE" Pack="true" PackagePath="" />
     <None Include="README.md" Pack="true" PackagePath="" />
     <Content Include="Templates\**\*" Exclude="Templates\**\bin\**;Templates\**\obj\**" />
     <Content Include="Templates\External Rules\**\*" PackagePath="content\Templates\Basic Template\External Rules" />
