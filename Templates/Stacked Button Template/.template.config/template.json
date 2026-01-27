@@ -2,16 +2,15 @@
 	"$schema": "http://json.schemastore.org/template",
 	"author": "Tyler Warner and Curtis Waguespack",
 	"classifications": [
-		"Library",
 		"Autodesk",
 		"Inventor",
 		"Add-In",
 		"VB"
 	],
 	"identity": "Autodesk.Inventor.Stacked",
-	"name": "Inventor Add-In Stacked Template",
+	"name": "Inventor Add-In Stacked Buttons Template",
 	"shortName": "inventoraddin-stacked",
-	"description": "A custom template for creating Autodesk Inventor Add-Ins, with stacked buttons",
+	"description": "A sample custom template for creating Autodesk Inventor add-ins, with stacked buttons",
 	"defaultName": "InventorAddIn",
 	"tags": {
 		"language": "VB",

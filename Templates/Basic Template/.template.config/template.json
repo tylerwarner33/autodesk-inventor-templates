@@ -2,7 +2,6 @@
     "$schema": "http://json.schemastore.org/template",
     "author": "Tyler Warner and Curtis Waguespack",
     "classifications": [
-        "Library",
         "Autodesk",
         "Inventor",
         "Add-In",
@@ -11,7 +10,7 @@
     "identity": "Autodesk.Inventor.Basic",
     "name": "Inventor Add-In Basic Template",
     "shortName": "inventoraddin-basic",
-    "description": "A custom template for creating Autodesk Inventor Add-Ins",
+    "description": "A sample custom template for creating Autodesk Inventor add-ins.",
     "defaultName": "InventorAddIn",
     "tags": {
         "language": "VB",

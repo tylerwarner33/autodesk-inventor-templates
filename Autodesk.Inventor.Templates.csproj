@@ -26,9 +26,9 @@
     <None Include="README.md" Pack="true" PackagePath="" />
     <Content Include="Templates\**\*" Exclude="Templates\**\bin\**;Templates\**\obj\**" />
     <Content Include="Templates\External Rules\**\*" PackagePath="content\Templates\Basic Template\External Rules" />
-    <Content Include="Templates\External Rules\**\*" PackagePath="content\Templates\Button Stacks Template\External Rules" />
+    <Content Include="Templates\External Rules\**\*" PackagePath="content\Templates\Stacked Button Template\External Rules" />
     <Content Include="Templates\Utility Tools\**\*" PackagePath="content\Templates\Basic Template\Utility Tools" />
-    <Content Include="Templates\Utility Tools\**\*" PackagePath="content\Templates\Button Stacks Template\Utility Tools" />
+    <Content Include="Templates\Utility Tools\**\*" PackagePath="content\Templates\Stacked Button Template\Utility Tools" />
   </ItemGroup>
 
 </Project>
