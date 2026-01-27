@@ -4,7 +4,7 @@
 [![.NET Versions](https://img.shields.io/badge/.NET-4.8--8.0-blue.svg)](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 [![Visual Studio Versions](https://img.shields.io/badge/Visual%20Studio-2022--2026-blue.svg)](https://github.com/tylerwarner33/autodesk-inventor-templates)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Build](https://github.com/tylerwarner33/autodesk-inventor-templates/actions/workflows/PublishRelease.yml/badge.svg)](https://github.com/tylerwarner33/autodesk-inventor-templates/actions)
+[![Build](https://github.com/tylerwarner33/autodesk-inventor-templates/actions/workflows/Release.yml/badge.svg)](https://github.com/tylerwarner33/autodesk-inventor-templates/actions)
 [![Release](https://img.shields.io/nuget/v/autodesk.inventor.templates?logo=nuget&label=Release&color=blue)](https://www.nuget.org/packages/Autodesk.Inventor.Templates)
 
 
