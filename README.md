@@ -92,7 +92,7 @@ dotnet new uninstall Autodesk.Inventor.Templates
 
 1. Open `https://github.com/tylerwarner33/autodesk-inventor-templates`
 2. Select `Actions` tab
-3. Select `Build and Release` workflow
+3. Select `Release` workflow
 4. Click `Run workflow`
 5. Enter `Release Version`
 6. Click `Run workflow`
