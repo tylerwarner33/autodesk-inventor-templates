@@ -12,9 +12,8 @@ on:
         type: string
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v6
