@@ -1,2 +1,5 @@
 mode: ContinuousDelivery
 label: preview
+branches:
+  main:
+    label: preview
