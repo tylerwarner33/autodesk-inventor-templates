@@ -1,0 +1,4 @@
+mode: ContinuousDeployment
+strategies:
+  - Mainline
+label: preview
