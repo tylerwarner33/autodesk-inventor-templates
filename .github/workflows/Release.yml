@@ -5,6 +5,11 @@ on:
     tags:
       - '*'
   workflow_dispatch:
+    inputs:
+      release:
+        description: 'Release Version?'
+        type: boolean
+        default: false
 
 jobs:
   release:
@@ -27,13 +32,22 @@ jobs:
           useConfigFile: true
           configFilePath: GitVersion.yml
 
+      - name: Set Package Version
+        id: version
+        run: |
+          if [ "${{ inputs.release }}" == "true" ]; then
+            echo "packageVersion=${{ steps.gitversion.outputs.majorMinorPatch }}" >> $GITHUB_OUTPUT
+          else
+            echo "packageVersion=${{ steps.gitversion.outputs.semVer }}" >> $GITHUB_OUTPUT
+          fi
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
         with:
           dotnet-version: ${{ vars.DOTNET_VERSION }}
 
       - name: Build NuGet Package
-        run: dotnet pack -c Release -p:PackageVersion=${{ steps.gitversion.outputs.semVer }} -o ./artifacts
+        run: dotnet pack -c Release -p:PackageVersion=${{ steps.version.outputs.packageVersion }} -o ./artifacts
 
       - name: Publish To NuGet.org
         run: dotnet nuget push ./artifacts/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
@@ -41,4 +55,4 @@ jobs:
       - name: Create Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release create ${{ steps.gitversion.outputs.semVer }} ./artifacts/*.nupkg --generate-notes
+        run: gh release create ${{ steps.version.outputs.packageVersion }} ./artifacts/*.nupkg --generate-notes
