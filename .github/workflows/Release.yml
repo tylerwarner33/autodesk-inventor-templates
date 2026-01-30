@@ -5,11 +5,6 @@ on:
     tags:
       - '*'
   workflow_dispatch:
-    inputs:
-      version:
-        description: "Release Version"
-        required: true
-        type: string
 
 jobs:
   release:
@@ -17,6 +12,20 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v3
+        with:
+          versionSpec: '6.x'
+
+      - name: Determine Version
+        uses: gittools/actions/gitversion/execute@v3
+        id: gitversion
+        with:
+          useConfigFile: true
+          configFilePath: GitVersion.yml
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
@@ -24,7 +33,7 @@ jobs:
           dotnet-version: ${{ vars.DOTNET_VERSION }}
 
       - name: Build NuGet Package
-        run: dotnet pack -c Release -p:PackageVersion=${{ inputs.version || github.ref_name }} -o ./artifacts
+        run: dotnet pack -c Release -p:PackageVersion=${{ steps.gitversion.outputs.semVer }} -o ./artifacts
 
       - name: Publish To NuGet.org
         run: dotnet nuget push ./artifacts/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
@@ -32,4 +41,4 @@ jobs:
       - name: Create Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release create ${{ inputs.version || github.ref_name }} ./artifacts/*.nupkg --generate-notes
+        run: gh release create ${{ steps.gitversion.outputs.semVer }} ./artifacts/*.nupkg --generate-notes
