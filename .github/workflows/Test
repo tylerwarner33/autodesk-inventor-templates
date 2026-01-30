@@ -1,0 +1,42 @@
+name: Test
+
+on:
+  push:
+    tags:
+      - '*'
+  workflow_dispatch:
+    inputs:
+      release:
+        description: 'Release Version?'
+        type: boolean
+        default: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v3
+        with:
+          versionSpec: '6.x'
+
+      - name: Determine Version
+        uses: gittools/actions/gitversion/execute@v3
+        id: gitversion
+        with:
+          useConfigFile: true
+          configFilePath: GitVersion.yml
+
+      - name: Set Package Version
+        id: version
+        run: |
+          if [ "${{ inputs.release }}" == "true" ]; then
+            echo "packageVersion=${{ steps.gitversion.outputs.majorMinorPatch }}" >> $GITHUB_OUTPUT
+          else
+            echo "packageVersion=${{ steps.gitversion.outputs.semVer }}" >> $GITHUB_OUTPUT
+          fi
