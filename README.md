@@ -5,11 +5,10 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![NuGet](https://img.shields.io/nuget/v/autodesk.inventor.templates?logo=nuget&label=NuGet&color=brightgreen)](https://www.nuget.org/packages/Autodesk.Inventor.Templates)
 
-
-This is a collection of multi-version Visual Studio templates for creating Autodesk Inventor Add-Ins. Started from the templates created by Curtis Waguespack & provided in his Autodesk University 2023 class: 
+This is a collection of multi-version Visual Studio project templates for creating Autodesk Inventor Add-Ins. Started from the templates created by Curtis Waguespack & provided in his Autodesk University 2023 class: 
 [Bridging the Gap Between iLogic Automation and Inventor Add-Ins](https://www.autodesk.com/autodesk-university/class/Bridging-the-Gap-Between-iLogic-Automation-and-Inventor-Add-Ins-2023).
 
-## Install
+## Install or Update
 
 ```bash
 dotnet new install Autodesk.Inventor.Templates
@@ -61,13 +60,17 @@ dotnet new uninstall Autodesk.Inventor.Templates
 
 ## Setup
 
-### Build
+### Run Locally
 
-1. Generate the package locally
+1. Clone this project or download it. It's recommended to install [GitHub Desktop](https://desktop.github.com/). To clone it via command line, use the following:
+    ```
+    git clone https://github.com/tylerwarner33/autodesk-inventor-templates.git
+    ```
+2. Generate the package locally
     ```bash
     dotnet pack -o ./nupkg -p:PackageVersion=1.0.0
     ```
-2. Install the locally generated package.
+3. Install the locally generated package.
     ```bash
     dotnet new install ./nupkg/Autodesk.Inventor.Templates.1.0.0.nupkg
     ```
@@ -75,7 +78,7 @@ dotnet new uninstall Autodesk.Inventor.Templates
       ```bash
       dotnet new uninstall
       ```
-3. Uninstall the locally generated & installed package.
+4. Uninstall the locally generated & installed package.
     ```bash
     dotnet new uninstall Autodesk.Inventor.Templates
     ```
@@ -88,8 +91,6 @@ dotnet new uninstall Autodesk.Inventor.Templates
 2. Select `Actions` tab
 3. Select `Release` workflow
 4. Click `Run workflow`
-5. Enter `Release Version`
-6. Click `Run workflow`
 
 #### Command Line
 

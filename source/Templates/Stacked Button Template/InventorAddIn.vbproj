@@ -50,11 +50,6 @@
 
   <!-- File References -->
   <ItemGroup>
-    <!--<Compile Update="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>-->
     <EmbeddedResource Update="My Project\Resources.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -115,9 +110,25 @@
     <EmbeddedResource Include="Resources\Zero_32.png" />
   </ItemGroup>
 
-  <!-- This 'PropertyGroup' section specifies where the plugin is being installed. -->
+  <!--
+  This 'PropertyGroup' section specifies where the Autodesk Inventor addin is being installed by the build target.
+  Uncomment the appropriate line for your needs. For more information, see the documentation:
+  https://help.autodesk.com/view/INVNTOR/2026/ENU/?guid=GUID-52422162-1784-4E8F-B495-CDB7BE9987AB
+  -->
   <PropertyGroup>
-    <!-- Inventor Plugin Folder - Per User, Version Dependent -->
+    <!-- All Users, Version Independent -->
+    <!--<AddinOutputPath>$(ProgramData)\Autodesk\Inventor Addins</AddinOutputPath>-->
+
+    <!-- (2024+) All Users, Version Dependent, Trusted Location (Requires Admin) -->
+    <!--<AddinOutputPath>$(ProgramFiles)\Autodesk\Inventor $(InventorVersion)\Bin\Addins</AddinOutputPath>-->
+
+    <!-- (2023-) All Users, Version Dependent -->
+    <!--<AddinOutputPath>$(ProgramData)\Autodesk\Inventor $(InventorVersion)\Addins</AddinOutputPath>-->
+    
+    <!-- Per User, Version Independent -->
+    <!--<AddinOutputPath>$(AppData)\Autodesk\ApplicationPlugins</AddinOutputPath>-->
+
+    <!-- Per User, Version Dependent -->
     <AddinOutputPath>$(AppData)\Autodesk\Inventor $(InventorVersion)\Addins</AddinOutputPath>
   </PropertyGroup>
 

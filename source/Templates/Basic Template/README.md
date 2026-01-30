@@ -1,32 +1,43 @@
-	How to Register/Unregister 
-	=======================
+# Stacked Button Template
 
-	1) Build Project;
+## Build & Installation
 
-	2) Copy add-in dll file to one of following locations: 
-		a) Anywhere, then *.addin file <Assembly> setting should be updated to the full path including the dll name
-		b) Inventor <InstallPath>\bin\ folder, then *.addin file <Assembly> setting should be the dll name only: <AddInName>.dll
-		c) Inventor <InstallPath>\bin\XX folder, then *.addin file <Assembly> setting shoule be a relative path: XX\<AddInName>.dll
+This project uses MSBuild targets to automatically install or uninstall the Autodesk Inventor add-in when you build or clean the project.
 
-	3) Copy.addin manifest file to one of following locations:
-		a) Inventor Version Dependent
-		Windows XP:
-			C:\Documents and Settings\All Users\Application Data\Autodesk\Inventor [version]\Addins\
-		Windows7/Vista/8/10:
-			C:\ProgramData\Autodesk\Inventor [version]\Addins\
+### How It Works
 
-		b) Inventor Version Independent
-		Windows XP:
-			C:\Documents and Settings\All Users\Application Data\Autodesk\Inventor Addins\
-		Windows7/Vista/8/10:
-			C:\ProgramData\Autodesk\Inventor Addins\
+The `.vbproj` file contains custom MSBuild targets that handle deployment:
 
-		c) Per User Override
-		Windows XP:
-			C:\Documents and Settings\<user>\Application Data\Autodesk\Inventor [version]\Addins\
-		Windows7/Vista/8/10:
-			C:\Users\<user>\AppData\Roaming\Autodesk\Inventor [version]\Addins\
+1. **BuildAddinOutputPath** (runs after Build):
+   - Copies `PackageContents.xml` to the add-in bundle folder
+   - Copies all build output files to the bundle's `Contents` folder
+   - Destination: `$(AddinOutputPath)\$(MSBuildProjectName).bundle\`
 
-	4) Startup Inventor, the AddIn should be loaded
+2. **CleanAddinOutputPath** (runs after Clean):
+   - Removes the add-in bundle folder when you clean the project
 
-	To unregister the AddIn, remove the Autodesk.<AddInName>.Inventor.addin from above mentioned .addin manifest file locations directly.
+### Add-in Output Location
+
+The `AddinOutputPath` property in the project file determines where the add-in is installed. By default, it installs to the **Per User, Version Dependent** location:
+`%AppData%\Autodesk\Inventor $(InventorVersion)\Addins`
+
+You can change this by uncommenting a different option in the `.vbproj` file:
+
+| Location | Path | Notes |
+|----------|------|-------|
+| All Users, Version Independent | `$(ProgramData)\Autodesk\Inventor Addins` | Shared across Inventor versions |
+| All Users, Version Dependent (2024+) | `$(ProgramFiles)\Autodesk\Inventor $(InventorVersion)\Bin\Addins` | Trusted location, requires Admin |
+| All Users, Version Dependent (2023-) | `$(ProgramData)\Autodesk\Inventor $(InventorVersion)\Addins` | For older Inventor versions |
+| Per User, Version Independent | `$(AppData)\Autodesk\ApplicationPlugins` | User-specific, shared across versions |
+| Per User, Version Dependent | `$(AppData)\Autodesk\Inventor $(InventorVersion)\Addins` | **Default** |
+
+### Usage
+
+1. **Build** the project in Visual Studio with Inventor closed to automatically install the add-in.
+2. **Open Inventor** to load the add-in automatically.
+3. **Clean** the project in Visual Studio with Inventor closed to uninstall the add-in.
+
+### Documentation
+
+For more information about add-in deployment locations, see the official [Autodesk Documentation](
+https://help.autodesk.com/view/INVNTOR/2026/ENU/?guid=GUID-52422162-1784-4E8F-B495-CDB7BE9987AB)
