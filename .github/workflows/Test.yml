@@ -40,3 +40,6 @@ jobs:
           else
             echo "packageVersion=${{ steps.gitversion.outputs.semVer }}" >> $GITHUB_OUTPUT
           fi
+
+      - name: Log Package Version
+        run: echo "Package version is ${{ steps.version.outputs.packageVersion }}"
