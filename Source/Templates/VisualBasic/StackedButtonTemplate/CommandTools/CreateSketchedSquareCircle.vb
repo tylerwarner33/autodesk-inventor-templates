@@ -41,7 +41,7 @@ Module CreateSketchedSquareCircle
 
 #End Region
 
-        Dim buttonDefinition As ButtonDefinition = CreateButtonDefintion.CreateButtonDef(
+        Dim buttonDefinition As ButtonDefinition = CreateButtonDefinition.Create(
             environment,
             customDrawingTab,
             ribbonPanel,
@@ -62,8 +62,8 @@ Module CreateSketchedSquareCircle
     ' This is the code that does the real work when your command is executed.
     Sub RunCommandCode()
 
-        Dim drawingDocument As DrawingDocument = _inventorApplication.ActiveDocument
-        Dim transientGeometry As TransientGeometry = _inventorApplication.TransientGeometry
+        Dim drawingDocument As DrawingDocument = InventorApplication.ActiveDocument
+        Dim transientGeometry As TransientGeometry = InventorApplication.TransientGeometry
         Dim symbolName As String = "Square Circle Symbol"
         Dim sketchedSymbolDefinition As SketchedSymbolDefinition
 

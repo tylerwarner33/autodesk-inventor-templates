@@ -21,7 +21,7 @@ Module ShowDate
         Dim buttonLabel As String = "Show" & vbLf & "Date/Time"
 
         ' Text that displays when the user hovers over the button.
-        Dim toolTipSimple As String = "Displays the data and time"
+        Dim toolTipSimple As String = "Displays the date and time"
         Dim toolTipExpanded As String = Nothing
 
 #Region "Progressive ToolTip"
@@ -41,7 +41,7 @@ Module ShowDate
 
 #End Region
 
-        Dim buttonDefinition As ButtonDefinition = CreateButtonDefintion.CreateButtonDef(
+        Dim buttonDefinition As ButtonDefinition = CreateButtonDefinition.Create(
             environment,
             customDrawingTab,
             ribbonPanel,

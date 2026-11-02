@@ -10,7 +10,7 @@ Module ApiHelp
     'This function is where the button is defined
     Function CreateButton(
         environment As String,
-        CustomDrawingTab As RibbonTab,
+        customDrawingTab As RibbonTab,
         ribbonPanel As RibbonPanel,
         useLargeIcon As Boolean,
         isInButtonStack As Boolean) As ButtonDefinition
@@ -36,7 +36,7 @@ Module ApiHelp
         If useProgressToolTip = True Then
             toolTipImage = PictureDispConverter.ToIPictureDisp(My.Resources.API_ToolTip)
 
-            toolTipExpanded = ChrW(&H2022) & " This tool opens the API help *.chm file in a seperate window" & vbLf &
+            toolTipExpanded = ChrW(&H2022) & " This tool opens the API help *.chm file in a separate window" & vbLf &
                 ChrW(&H2022) & " Line2" & vbLf &
                 ChrW(&H2022) & " Line3" & vbLf &
                 ChrW(&H2022) & " Line4"
@@ -44,9 +44,9 @@ Module ApiHelp
 
 #End Region
 
-        Dim buttonDefinition As ButtonDefinition = CreateButtonDefintion.CreateButtonDef(
+        Dim buttonDefinition As ButtonDefinition = CreateButtonDefinition.Create(
             environment,
-            CustomDrawingTab,
+            customDrawingTab,
             ribbonPanel,
             useLargeIcon,
             isInButtonStack,
@@ -65,22 +65,22 @@ Module ApiHelp
     'This is the code that does the real work when your command is executed.
     Sub RunCommandCode()
 
-        Dim Version = _inventorApplication.SoftwareVersion.DisplayVersion
-        Dim Array = Split(Version, ".")
-        Version = Array(0)
-        Dim Build = _inventorApplication.SoftwareVersion.Major
+        Dim version = InventorApplication.SoftwareVersion.DisplayVersion
+        Dim versionParts = Split(version, ".")
+        version = versionParts(0)
+        Dim build = InventorApplication.SoftwareVersion.Major
 
-        Dim Filename = "C:\Users\Public\Documents\Autodesk\Inventor " &
-        Version & "\Local Help\ADMAPI_" & Build & "_0.chm"
+        Dim fileName = "C:\Users\Public\Documents\Autodesk\Inventor " &
+        version & "\Local Help\ADMAPI_" & build & "_0.chm"
 
-        If System.IO.File.Exists(Filename) = True Then
+        If System.IO.File.Exists(fileName) = True Then
 #If #NETFRAMEWORK Then
-            Process.Start(Filename)
+            Process.Start(fileName)
 #Else
-            Process.Start(New ProcessStartInfo(Filename) With {.UseShellExecute = True})
+            Process.Start(New ProcessStartInfo(fileName) With {.UseShellExecute = True})
 #End If
         Else
-            MsgBox("File Does Not Exist" & vbLf & Filename)
+            MsgBox("File Does Not Exist" & vbLf & fileName)
         End If
 
     End Sub

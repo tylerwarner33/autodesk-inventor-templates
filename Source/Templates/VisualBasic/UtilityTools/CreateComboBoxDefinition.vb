@@ -1,8 +1,8 @@
 ﻿Imports Inventor
 
-Module CreateComboBoxDefintion
+Module CreateComboBoxDefinition
 
-    Function CreateButtonDef(
+    Function Create(
         ribbonTab As RibbonTab,
         ribbonPanelName As String,
         isInButtonStack As Boolean,
@@ -12,38 +12,38 @@ Module CreateComboBoxDefintion
         toolTipSimple As String) As ComboBoxDefinition
 
         Dim buttonNameNoSpaces = buttonLabel.Replace(System.Environment.NewLine, "_").Replace(vbLf, "_").Replace(vbCr, "_").Replace(" ", "_")
-        Dim internalName As String = buttonNameNoSpaces & "_" & _addInClientID & "_Button_InternalName"
+        Dim internalName As String = buttonNameNoSpaces & "_" & AddInClientId & "_Button_InternalName"
         Dim description As String = buttonNameNoSpaces & "_Button"
-        Dim controlDefs As Inventor.ControlDefinitions = _inventorApplication.CommandManager.ControlDefinitions
+        Dim controlDefinitions As Inventor.ControlDefinitions = InventorApplication.CommandManager.ControlDefinitions
 
-        Dim toolButtonDef As ButtonDefinition = CheckForExisting.GetButtonDef(internalName)
+        Dim buttonDefinition As ButtonDefinition = CheckForExisting.GetButtonDefinition(internalName)
 
-        If Not toolButtonDef Is Nothing Then
-            Return toolButtonDef
+        If Not buttonDefinition Is Nothing Then
+            Return buttonDefinition
             Exit Function
         End If
 
         Dim ribbonPanel = CreateRibbonPanel.GetRibbonPanel(ribbonPanelName, ribbonTab)
 
-        toolButtonDef = controlDefs.AddComboBoxDefinition(
+        buttonDefinition = controlDefinitions.AddComboBoxDefinition(
             buttonLabel,
             internalName,
             CommandTypesEnum.kEditMaskCmdType,
             dropDownWidth,
-            _addInClientID)
+            AddInClientId)
 
-        toolButtonDef.DescriptionText = description
-        toolButtonDef.ToolTipText = toolTipSimple
+        buttonDefinition.DescriptionText = description
+        buttonDefinition.ToolTipText = toolTipSimple
 
         If isInButtonStack = False Then
             If isInSlideOut = False Then
-                ribbonPanel.CommandControls.AddComboBox(toolButtonDef)
+                ribbonPanel.CommandControls.AddComboBox(buttonDefinition)
             Else
-                ribbonPanel.SlideoutControls.AddComboBox(toolButtonDef)
+                ribbonPanel.SlideoutControls.AddComboBox(buttonDefinition)
             End If
         End If
 
-        Return toolButtonDef
+        Return buttonDefinition
 
     End Function
 

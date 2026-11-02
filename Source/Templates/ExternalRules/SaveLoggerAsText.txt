@@ -42,10 +42,10 @@
     Sub EndLogging()
 
         oElapsedTime = Now().Subtract(oStartTime)
-        oTime = oElapsedTime.TotalSeconds
-        oTime = Round(oTime, 2)
+        oTotalSeconds = oElapsedTime.TotalSeconds
+        oTotalSeconds = Round(oTotalSeconds, 2)
         oLine1 = "iLogic Complete! "
-        oLine2 = "Total Run Time : " & oTime & " seconds "
+        oLine2 = "Total Run Time : " & oTotalSeconds & " seconds "
         oTimeout = 3.5 ' seconds
 
         Logger.Info(oLine1)

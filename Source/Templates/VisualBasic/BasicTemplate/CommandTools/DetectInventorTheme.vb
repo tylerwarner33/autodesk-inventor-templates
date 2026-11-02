@@ -46,7 +46,7 @@ Module DetectInventorTheme
 
 #End Region
 
-        Dim buttonDefinition As ButtonDefinition = CreateButtonDefintion.CreateButtonDef(
+        Dim buttonDefinition As ButtonDefinition = CreateButtonDefinition.Create(
             environment,
             customDrawingTab,
             ribbonPanel,

@@ -26,7 +26,7 @@ Module UserName
 
 #Region "Progressive ToolTip"
 
-        'sSet to true to use a progressive tool tip, and false to a simple tool tip.
+        ' Set to true to use a progressive tool tip, and false to a simple tool tip.
         Dim useProgressToolTip As Boolean = False
 
         ' Only used if 'useProgressToolTip = true'.
@@ -41,7 +41,7 @@ Module UserName
 
 #End Region
 
-        Dim buttonDefinition As ButtonDefinition = CreateButtonDefintion.CreateButtonDef(
+        Dim buttonDefinition As ButtonDefinition = CreateButtonDefinition.Create(
             environment,
             customDrawingTab,
             ribbonPanel,
@@ -61,7 +61,7 @@ Module UserName
 
     ' This is the code that does the real work when your command is executed.
     Sub RunCommandCode()
-        MsgBox(_inventorApplication.GeneralOptions.UserName)
+        MsgBox(InventorApplication.GeneralOptions.UserName)
     End Sub
 
 End Module

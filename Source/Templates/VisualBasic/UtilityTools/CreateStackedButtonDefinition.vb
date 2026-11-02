@@ -24,7 +24,7 @@ Module CreateStackedButtonDefinition
         Try
             ribbonPanel.CommandControls.AddPopup(defaultButton, collection, useLargeIcon, True, "", False)
         Catch ex As Exception
-            System.Diagnostics.Debug.WriteLine("Error in CreatePopUp_ButtonDef" & environmentName & ", " &
+            System.Diagnostics.Debug.WriteLine("Error in CreatePopUpButtonDefinition" & environmentName & ", " &
                 tabName & ", " & panelName & ", " & defaultButtonName)
             System.Diagnostics.Debug.WriteLine(ex.Message)
         End Try
@@ -52,7 +52,7 @@ Module CreateStackedButtonDefinition
         Try
             ribbonPanel.CommandControls.AddTogglePopup(defaultButton, collection, useLargeIcon, True, "", False)
         Catch ex As Exception
-            System.Diagnostics.Debug.WriteLine("Error in CreateToggle_PopUp_ButtonDef" &
+            System.Diagnostics.Debug.WriteLine("Error in CreateTogglePopUpButtonDefinition" &
                 environmentName & ", " & tabName & ", " & panelName & ", " & defaultButtonName)
             System.Diagnostics.Debug.WriteLine(ex.Message)
         End Try
@@ -78,7 +78,7 @@ Module CreateStackedButtonDefinition
         Try
             ribbonPanel.CommandControls.AddButtonPopup(collection, useLargeIcon, True, "", False)
         Catch ex As Exception
-            System.Diagnostics.Debug.WriteLine("Error in CreateButton_PopUp_ButtonDef" &
+            System.Diagnostics.Debug.WriteLine("Error in CreateButtonPopUpButtonDefinition" &
                 environmentName & ", " & tabName & ", " & panelName)
             System.Diagnostics.Debug.WriteLine(ex.Message)
         End Try
@@ -104,7 +104,7 @@ Module CreateStackedButtonDefinition
         Try
             ribbonPanel.CommandControls.AddSplitButtonMRU(collection, useLargeIcon, True, "", False)
         Catch ex As Exception
-            System.Diagnostics.Debug.WriteLine("Error in CreateSplit_MostRecentlyUsed_ButtonDef" &
+            System.Diagnostics.Debug.WriteLine("Error in CreateSplitMostRecentlyUsedButtonDefinition" &
                 environmentName & ", " & tabName & ", " & panelName)
             System.Diagnostics.Debug.WriteLine(ex.Message)
         End Try

@@ -6,18 +6,18 @@ Imports System.Runtime.InteropServices
 ' Define global variables.
 Public Module Globals
 
-    Public _inventorApplication As Inventor.Application
+    Public Property InventorApplication As Inventor.Application
     ''' <summary>
     ''' Unique ID for this add-in.
     ''' </summary>
-    Public Const _simpleAddInClientID As String = "CLIENT_GUID_PLACEHOLDER"
-    Public Const _addInClientID As String = "{" & _simpleAddInClientID & "}"
+    Public Const SimpleAddInClientId As String = "CLIENT_GUID_PLACEHOLDER"
+    Public Const AddInClientId As String = "{" & SimpleAddInClientId & "}"
 
 End Module
 
 Namespace InventorAddIn
 
-    <ProgIdAttribute("InventorAddIn.StandardAddInServer"), GuidAttribute(_simpleAddInClientID)>
+    <ProgIdAttribute("InventorAddIn.StandardAddInServer"), GuidAttribute(SimpleAddInClientId)>
     Public Class StandardAddInServer
         Implements Inventor.ApplicationAddInServer
 
@@ -35,16 +35,16 @@ Namespace InventorAddIn
 #Region "Setup Information"
 
             ' Create a object collection and Control Definition array to be used with button stacks.
-            Dim buttonObjectCollection As ObjectCollection = _inventorApplication.TransientObjects.CreateObjectCollection
+            Dim buttonObjectCollection As ObjectCollection = InventorApplication.TransientObjects.CreateObjectCollection
             Dim controlDefinition(0 To 99) As ControlDefinition
 
             ' Create list of environments to cycle through.
             Dim environmentList As New List(Of String)({"Drawing", "Assembly", "Part"})
 
-            ' Define custom roibbon tab prefix and suffix.
+            ' Define custom ribbon tab prefix and suffix.
             ' This will be combined with the EnvironmentList to create ribbon tabs like "ACME Drawing Tools", "ACME Part Tools", etc.
             Dim ribbonTabNamePrefix As String = "ACME"
-            Dim ribbonTabNameSufffix As String = "Tools"
+            Dim ribbonTabNameSuffix As String = "Tools"
 
             ' Create list of panels to create on the custom ribbon tab.
             Dim customPanelList As New List(Of String)({"General Tools", "External Rule Buttons"})
@@ -59,8 +59,8 @@ Namespace InventorAddIn
             ''      Suffix = "Tools"
             ''      will create a custom tab called: ACME Drawing Tools
 
-            Dim allRibbons As Ribbons = _inventorApplication.UserInterfaceManager.Ribbons
-            Dim visibleTabsCollection As ObjectCollection = _inventorApplication.TransientObjects.CreateObjectCollection
+            Dim allRibbons As Ribbons = InventorApplication.UserInterfaceManager.Ribbons
+            Dim visibleTabsCollection As ObjectCollection = InventorApplication.TransientObjects.CreateObjectCollection
 
             Dim customDrawingTab As RibbonTab = Nothing
             Dim customAssemblyTab As RibbonTab = Nothing
@@ -90,16 +90,16 @@ Namespace InventorAddIn
                 Next
 
                 ' Get count of tabs in collection.
-                Dim iCount As Integer = visibleTabsCollection.Count
+                Dim visibleTabCount As Integer = visibleTabsCollection.Count
 
                 ' Get the last tab in the collection.
-                Dim lastTab As String = visibleTabsCollection.Item(iCount).InternalName
+                Dim lastTab As String = visibleTabsCollection.Item(visibleTabCount).InternalName
 
                 ' Create new tab name.
-                Dim newTabName As String = ribbonTabNamePrefix & " " & myRibbon.InternalName & " " & ribbonTabNameSufffix
+                Dim newTabName As String = ribbonTabNamePrefix & " " & myRibbon.InternalName & " " & ribbonTabNameSuffix
 
                 ' Create new tab.
-                Dim customTab As RibbonTab = CreateRibbonTab.GetRibbon_Tab(newTabName, myRibbon, lastTab)
+                Dim customTab As RibbonTab = CreateRibbonTab.GetRibbonTab(newTabName, myRibbon, lastTab)
 
                 ' Create the tab and panels for each environment.
                 If i = 0 Then
@@ -146,7 +146,7 @@ Namespace InventorAddIn
         End Sub
 #End Region
 
-#Region "Applicaton Events"
+#Region "Application Events"
 
         Private Sub Events_OnNewDocument(
             ByVal documentObject As Inventor._Document,
@@ -174,7 +174,7 @@ Namespace InventorAddIn
             ByRef handlingCode As HandlingCodeEnum)
 
             If documentObject Is Nothing Then Exit Sub
-            If documentObject IsNot _inventorApplication.ActiveDocument Then Exit Sub ' Only trigger on the active file.
+            If documentObject IsNot InventorApplication.ActiveDocument Then Exit Sub ' Only trigger on the active file.
             If Not documentObject.DocumentType = DocumentTypeEnum.kDrawingDocumentObject Then Exit Sub
 
             'run this after a document is open
@@ -217,13 +217,13 @@ Namespace InventorAddIn
             Dim addinName = Reflection.Assembly.GetExecutingAssembly.GetName.Name.ToString
 
             ' Initialize add-in members.
-            _inventorApplication = addInSiteObject.Application
+            InventorApplication = addInSiteObject.Application
 
             ' Connect to events.
-            _userInterfaceEvents = _inventorApplication.UserInterfaceManager.UserInterfaceEvents
-            _userInputEvents = _inventorApplication.CommandManager.UserInputEvents
-            _transactionEvents = _inventorApplication.TransactionManager.TransactionEvents
-            _applicationEvents = _inventorApplication.ApplicationEvents
+            _userInterfaceEvents = InventorApplication.UserInterfaceManager.UserInterfaceEvents
+            _userInputEvents = InventorApplication.CommandManager.UserInputEvents
+            _transactionEvents = InventorApplication.TransactionManager.TransactionEvents
+            _applicationEvents = InventorApplication.ApplicationEvents
 
             ' Add event handlers.
             AddHandler _applicationEvents.OnNewDocument, AddressOf Me.Events_OnNewDocument
@@ -252,7 +252,7 @@ Namespace InventorAddIn
                     AddToUserInterface()
 
                     message = "Adding " & addinName & " To User Interface."
-                    _inventorApplication.StatusBarText = message
+                    InventorApplication.StatusBarText = message
                     System.Diagnostics.Debug.WriteLine("*******  " & message)
                     '  MsgBox(Message)
                 Catch ex As Exception
@@ -262,7 +262,7 @@ Namespace InventorAddIn
 
             Else
                 'MsgBox(addinName & " not the first time activated.")
-                _inventorApplication.StatusBarText = addinName & " not the first time activated."
+                InventorApplication.StatusBarText = addinName & " not the first time activated."
             End If
 #End Region
 
@@ -272,7 +272,7 @@ Namespace InventorAddIn
         ' unloaded either manually by the user or when the Inventor session is terminated.
         Public Sub Deactivate() Implements Inventor.ApplicationAddInServer.Deactivate
 
-            _inventorApplication = Nothing
+            InventorApplication = Nothing
             _userInterfaceEvents = Nothing
             _userInputEvents = Nothing
             _transactionEvents = Nothing
@@ -295,12 +295,12 @@ Namespace InventorAddIn
             End Get
         End Property
 
-        ' Note:tThis method is now obsolete, you should use the ControlDefinition functionality for implementing commands.
+        ' Note: This method is now obsolete, you should use the ControlDefinition functionality for implementing commands.
         Public Sub ExecuteCommand(ByVal commandId As Integer) Implements Inventor.ApplicationAddInServer.ExecuteCommand
             ' Not used.
         End Sub
 
-        Private Sub m_uiEvents_OnResetRibbonInterface(Context As NameValueMap) Handles _userInterfaceEvents.OnResetRibbonInterface
+        Private Sub UserInterfaceEvents_OnResetRibbonInterface(context As NameValueMap) Handles _userInterfaceEvents.OnResetRibbonInterface
             ' The ribbon was reset, so add back the add-ins user-interface.
             AddToUserInterface()
         End Sub

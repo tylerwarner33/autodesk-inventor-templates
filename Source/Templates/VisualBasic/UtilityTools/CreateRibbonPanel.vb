@@ -13,7 +13,7 @@ Module CreateRibbonPanel
         Dim panelId As String = "id_" & Replace(panelName, " ", "_")
 
         If ribbonPanel Is Nothing Then
-            ribbonPanel = customRibbonTab.RibbonPanels.Add(panelName, panelId, _addInClientID)
+            ribbonPanel = customRibbonTab.RibbonPanels.Add(panelName, panelId, AddInClientId)
             System.Diagnostics.Debug.WriteLine("*******  " & panelName & " panel created")
         End If
 

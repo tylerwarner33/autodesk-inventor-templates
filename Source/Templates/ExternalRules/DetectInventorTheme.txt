@@ -1,8 +1,8 @@
 ﻿
-Dim activeTheme As String = ThisApplication.ThemeManager.ActiveTheme.Name
+Dim oActiveTheme As String = ThisApplication.ThemeManager.ActiveTheme.Name
 
-If activeTheme = "DarkTheme"  Then
+If oActiveTheme = "DarkTheme"  Then
 	MsgBox("You're rockin the dark theme",, "iLogic")	
-ElseIf activeTheme = "LightTheme" Then
+ElseIf oActiveTheme = "LightTheme" Then
 	MsgBox("You're rockin the light theme",, "iLogic")	
 End If

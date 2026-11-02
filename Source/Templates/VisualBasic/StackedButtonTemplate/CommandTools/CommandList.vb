@@ -42,7 +42,7 @@ Module CommandList
 
 #End Region
 
-        Dim buttonDefinition As ButtonDefinition = CreateButtonDefintion.CreateButtonDef(
+        Dim buttonDefinition As ButtonDefinition = CreateButtonDefinition.Create(
             environment,
             customDrawingTab,
             ribbonPanel,
@@ -66,9 +66,9 @@ Module CommandList
         Dim folder As String = "C:\temp\"
         Dim fileName As String = folder & "Inventor Command List.txt"
 
-        Dim commandManager As CommandManager = _inventorApplication.CommandManager
+        Dim commandManager As CommandManager = InventorApplication.CommandManager
         Dim controlDefinitions As ControlDefinitions = commandManager.ControlDefinitions
-        Dim ControlDefinition As ControlDefinition
+        Dim controlDefinition As ControlDefinition
         Dim objectWriter As Object
 
         ' Create folder.
@@ -94,12 +94,12 @@ Module CommandList
         streamWriter.WriteLine("____________________________________________________________________________________")
         streamWriter.WriteLine("")
 
-        For Each ControlDefinition In controlDefinitions
-            If ControlDefinition.DescriptionText = "" Then
-                streamWriter.WriteLine(ControlDefinition.InternalName)
+        For Each controlDefinition In controlDefinitions
+            If controlDefinition.DescriptionText = "" Then
+                streamWriter.WriteLine(controlDefinition.InternalName)
             Else
-                streamWriter.WriteLine(ControlDefinition.InternalName & vbTab & vbTab & vbTab & vbTab & vbTab & vbTab &
-    "  " & ChrW(&H22) & ControlDefinition.DescriptionText & ChrW(&H22))
+                streamWriter.WriteLine(controlDefinition.InternalName & vbTab & vbTab & vbTab & vbTab & vbTab & vbTab &
+    "  " & ChrW(&H22) & controlDefinition.DescriptionText & ChrW(&H22))
             End If
         Next
         streamWriter.Close()

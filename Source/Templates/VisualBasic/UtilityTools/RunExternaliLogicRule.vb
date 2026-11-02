@@ -14,11 +14,11 @@ Module RunExternaliLogicRule
     ''' <summary>
     ''' Runs an external iLogic rule by name.
     ''' </summary>
-    Public Sub RunExternalRule(ByVal ExternalRuleName As String)
+    Public Sub RunExternalRule(ByVal externalRuleName As String)
 
         Try
             ' The application object.
-            Dim addIns As ApplicationAddIns = _inventorApplication.ApplicationAddIns()
+            Dim addIns As ApplicationAddIns = InventorApplication.ApplicationAddIns()
 
             ' Unique ID code for iLogic Addin.
             Dim iLogicAddIn As ApplicationAddIn = addIns.ItemById(_iLogicAddInGuid)
@@ -27,9 +27,9 @@ Module RunExternaliLogicRule
             iLogicAddIn.Activate()
 
             ' Executes the rule.
-            iLogicAddIn.Automation.RunExternalRule(_inventorApplication.ActiveDocument, ExternalRuleName)
+            iLogicAddIn.Automation.RunExternalRule(InventorApplication.ActiveDocument, externalRuleName)
         Catch ex As Exception
-            MsgBox("Error launching external rule: " & vbLf & "     " & ExternalRuleName _
+            MsgBox("Error launching external rule: " & vbLf & "     " & externalRuleName _
                 & vbLf & vbLf & "Ensure the iLogic rule exists, and that the" _
                 & vbLf & "configuration includes the path to the rules." _
                 & vbLf & vbLf & "see Tools tab > Options flyout button > iLogic Configuration button" _
@@ -63,7 +63,7 @@ Module RunExternaliLogicRule
             End If
 
             ' Get the iLogic add-in
-            Dim addIns As ApplicationAddIns = _inventorApplication.ApplicationAddIns()
+            Dim addIns As ApplicationAddIns = InventorApplication.ApplicationAddIns()
             Dim iLogicAddIn As ApplicationAddIn = Nothing
 
             Try
@@ -82,14 +82,14 @@ Module RunExternaliLogicRule
             ' Activate iLogic to access its automation.
             iLogicAddIn.Activate()
 
-            Dim iLogicAuto As Object = iLogicAddIn.Automation
-            If iLogicAuto Is Nothing Then
+            Dim iLogicAutomation As Object = iLogicAddIn.Automation
+            If iLogicAutomation Is Nothing Then
                 _externalRulesPathRegistered = True
                 Return
             End If
 
             ' Get the current external rule directories.
-            Dim fileOptions As Object = iLogicAuto.FileOptions
+            Dim fileOptions As Object = iLogicAutomation.FileOptions
             Dim existingPaths As String() = DirectCast(fileOptions.ExternalRuleDirectories, String())
 
             ' Check if our path is already registered (case-insensitive comparison).

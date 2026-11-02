@@ -13,9 +13,9 @@ Friend MustInherit Class Button
     End Property
 
     Public Sub New(
-        ByVal Environment As String,
-        CustomDrawingTab As RibbonTab,
-        RibbonPanel As RibbonPanel,
+        ByVal environment As String,
+        customDrawingTab As RibbonTab,
+        ribbonPanel As RibbonPanel,
         useLargeIcon As Boolean,
         isInButtonStack As Boolean)
 
@@ -29,21 +29,21 @@ Friend MustInherit Class Button
             Dim buttonLabel As String = Nothing
 
             ' Text that displays when the user hovers over the button.
-            Dim toolTip_Simple As String = Nothing
-            Dim toolTip_Expanded As String = Nothing
+            Dim toolTipSimple As String = Nothing
+            Dim toolTipExpanded As String = Nothing
             Dim useProgressToolTip As Boolean = True
 
             ' Create button definition.
-            _buttonDefinition = CreateButtonDefintion.CreateButtonDef(
+            _buttonDefinition = CreateButtonDefinition.Create(
                 Environment,
-                CustomDrawingTab,
+                customDrawingTab,
                 RibbonPanel,
                 useLargeIcon,
                 isInButtonStack,
                 useProgressToolTip,
                 buttonLabel,
-                toolTip_Simple,
-                toolTip_Expanded,
+                toolTipSimple,
+                toolTipExpanded,
                 standardIcon,
                 largeIcon,
                 toolTipImage)

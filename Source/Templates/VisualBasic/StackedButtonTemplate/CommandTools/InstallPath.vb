@@ -41,7 +41,7 @@ Module InstallPath
 
 #End Region
 
-        Dim buttonDefinition As ButtonDefinition = CreateButtonDefintion.CreateButtonDef(
+        Dim buttonDefinition As ButtonDefinition = CreateButtonDefinition.Create(
             environment,
             customDrawingTab,
             ribbonPanel,
@@ -61,7 +61,7 @@ Module InstallPath
 
     ' This is the code that does the real work when your command is executed.
     Sub RunCommandCode()
-        MsgBox(_inventorApplication.InstallPath)
+        MsgBox(InventorApplication.InstallPath)
     End Sub
 
 End Module

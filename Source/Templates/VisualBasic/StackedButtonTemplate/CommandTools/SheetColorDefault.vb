@@ -38,7 +38,7 @@ Module SheetColorDefault
 
 #End Region
 
-        Dim buttonDefinition As ButtonDefinition = CreateButtonDefintion.CreateButtonDef(
+        Dim buttonDefinition As ButtonDefinition = CreateButtonDefinition.Create(
             environment,
             customDrawingTab,
             ribbonPanel,
@@ -59,8 +59,8 @@ Module SheetColorDefault
     ' This is the code that does the real work when your command is executed.
     Sub RunCommandCode()
 
-        Dim drawingDocument As DrawingDocument = _inventorApplication.ActiveDocument
-        Dim transientObjects As TransientObjects = _inventorApplication.TransientObjects
+        Dim drawingDocument As DrawingDocument = InventorApplication.ActiveDocument
+        Dim transientObjects As TransientObjects = InventorApplication.TransientObjects
         drawingDocument.SheetSettings.SheetColor = transientObjects.CreateColor(237, 237, 214)
 
     End Sub

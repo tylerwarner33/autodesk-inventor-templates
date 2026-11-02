@@ -43,7 +43,7 @@ Module DetectInventorTheme
         'If useProgressToolTip = True Then
         '    toolTipImage = PictureDispConverter.ToIPictureDisp(My.Resources.YourToolTipImageNameHere)
 
-        '    toolTip_Expanded = ChrW(&H2022) & " This tool pops up the application balloon with a message" & vbLf &
+        '    toolTipExpanded = ChrW(&H2022) & " This tool pops up the application balloon with a message" & vbLf &
         '        ChrW(&H2022) & " Line2" & vbLf &
         '        ChrW(&H2022) & " Line3" & vbLf &
         '        ChrW(&H2022) & " Line4"
@@ -51,7 +51,7 @@ Module DetectInventorTheme
 
 #End Region
 
-        Dim buttonDefinition As ButtonDefinition = CreateButtonDefintion.CreateButtonDef(
+        Dim buttonDefinition As ButtonDefinition = CreateButtonDefinition.Create(
             environment,
             customDrawingTab,
             ribbonPanel,

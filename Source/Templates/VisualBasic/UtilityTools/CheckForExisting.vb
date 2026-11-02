@@ -2,12 +2,12 @@
 
 Module CheckForExisting
 
-    Function GetButtonDef(internalName As String) As ButtonDefinition
+    Function GetButtonDefinition(internalName As String) As ButtonDefinition
 
         ' Check if button exists
         Dim buttonDefinition As Inventor.ButtonDefinition = Nothing
         Try
-            buttonDefinition = _inventorApplication.CommandManager.ControlDefinitions.Item(internalName)
+            buttonDefinition = InventorApplication.CommandManager.ControlDefinitions.Item(internalName)
         Catch ex As Exception
         End Try
 
@@ -45,7 +45,7 @@ Module CheckForExisting
         ' Check if panel exists
         Dim ribbonTab As RibbonTab = Nothing
         Try
-            ribbonTab = _inventorApplication.UserInterfaceManager.Ribbons.Item(environmentName).RibbonTabs.Item(internalName)
+            ribbonTab = InventorApplication.UserInterfaceManager.Ribbons.Item(environmentName).RibbonTabs.Item(internalName)
         Catch ex As Exception
         End Try
 

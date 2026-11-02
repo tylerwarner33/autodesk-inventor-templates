@@ -38,7 +38,7 @@ Module ApiHelp
         If useProgressToolTip = True Then
             toolTipImage = PictureDispConverter.ToIPictureDisp(My.Resources.API_ToolTip)
 
-            toolTipExpanded = ChrW(&H2022) & " This tool opens the API help *.chm file in a seperate window" & vbLf &
+            toolTipExpanded = ChrW(&H2022) & " This tool opens the API help *.chm file in a separate window" & vbLf &
                 "    Use the API help to find:" & vbLf &
                 ChrW(&H2022) & "       API Object Model Reference Information" & vbLf &
                 ChrW(&H2022) & "       Example Code"
@@ -46,7 +46,7 @@ Module ApiHelp
 
 #End Region
 
-        Dim buttonDefinition As ButtonDefinition = CreateButtonDefintion.CreateButtonDef(
+        Dim buttonDefinition As ButtonDefinition = CreateButtonDefinition.Create(
             environment,
             customDrawingTab,
             ribbonPanel,
@@ -67,10 +67,10 @@ Module ApiHelp
     ' This is the code that does the real work when your command is executed.
     Sub RunCommandCode()
 
-        Dim version = _inventorApplication.SoftwareVersion.DisplayVersion
-        Dim array = Split(version, ".")
-        version = array(0)
-        Dim build = _inventorApplication.SoftwareVersion.Major
+        Dim version = InventorApplication.SoftwareVersion.DisplayVersion
+        Dim versionParts = Split(version, ".")
+        version = versionParts(0)
+        Dim build = InventorApplication.SoftwareVersion.Major
 
         Dim fileName = "C:\Users\Public\Documents\Autodesk\Inventor " &
         version & "\Local Help\ADMAPI_" & build & "_0.chm"
@@ -79,7 +79,7 @@ Module ApiHelp
 #If #NETFRAMEWORK Then
             Process.Start(fileName)
 #Else
-            Process.Start(New ProcessStartInfo(Filename) With {.UseShellExecute = True})
+            Process.Start(New ProcessStartInfo(fileName) With {.UseShellExecute = True})
 #End If
         Else
             MsgBox("File Does Not Exist" & vbLf & fileName)
