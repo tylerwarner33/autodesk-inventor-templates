@@ -35,10 +35,10 @@
     <None Include="..\.nuget\PackageIcon.png" PackagePath="images/" Pack="true" Visible="false" />
     <None Include="..\README.md" PackagePath="" Pack="true" Visible="false" />
     <Content Include="**\*" Exclude="**\bin\**\*;**\obj\**\*;*.csproj" />
-    <Content Include="Templates\External Rules\**\*" PackagePath="content\Templates\Basic Template\External Rules" />
-    <Content Include="Templates\External Rules\**\*" PackagePath="content\Templates\Stacked Button Template\External Rules" />
-    <Content Include="Templates\Utility Tools\**\*" PackagePath="content\Templates\Basic Template\Utility Tools" />
-    <Content Include="Templates\Utility Tools\**\*" PackagePath="content\Templates\Stacked Button Template\Utility Tools" />
+    <Content Include="Templates\ExternalRules\**\*" PackagePath="content\Templates\VisualBasic\BasicTemplate\ExternalRules" />
+    <Content Include="Templates\VisualBasic\UtilityTools\**\*" PackagePath="content\Templates\VisualBasic\BasicTemplate\UtilityTools" />
+    <Content Include="Templates\ExternalRules\**\*" PackagePath="content\Templates\VisualBasic\StackedButtonTemplate\ExternalRules" />
+    <Content Include="Templates\VisualBasic\UtilityTools\**\*" PackagePath="content\Templates\VisualBasic\StackedButtonTemplate\UtilityTools" />
   </ItemGroup>
 
 </Project>

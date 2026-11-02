@@ -4,7 +4,7 @@ Imports System.Reflection
 
 ''' <summary>
 ''' Utility module for running external iLogic rules from the add-in.
-''' Includes automatic registration of the add-in's External Rules folder with iLogic.
+''' Includes automatic registration of the add-in's ExternalRules folder with iLogic.
 ''' </summary>
 Module RunExternaliLogicRule
 
@@ -41,7 +41,7 @@ Module RunExternaliLogicRule
     End Sub
 
     ''' <summary>
-    ''' Registers the add-in's External Rules folder with iLogic's External Rule Directories.
+    ''' Registers the add-in's ExternalRules folder with iLogic's External Rule Directories.
     ''' This is called automatically before running any external rule, and only runs once per session.
     ''' </summary>
     Public Sub EnsureExternalRulesPathRegistered()
@@ -50,12 +50,12 @@ Module RunExternaliLogicRule
         If _externalRulesPathRegistered Then Return
 
         Try
-            ' Get the path to our External Rules folder (next to the add-in DLL).
+            ' Get the path to our ExternalRules folder (next to the add-in DLL).
             Dim addinAssemblyPath As String = Assembly.GetExecutingAssembly().Location
             Dim addinDirectory As String = System.IO.Path.GetDirectoryName(addinAssemblyPath)
-            Dim externalRulesPath As String = System.IO.Path.Combine(addinDirectory, "External Rules")
+            Dim externalRulesPath As String = System.IO.Path.Combine(addinDirectory, "ExternalRules")
 
-            ' Check if the External Rules folder exists.
+            ' Check if the ExternalRules folder exists.
             If Not Directory.Exists(externalRulesPath) Then
                 ' No external rules folder deployed, nothing to register.
                 _externalRulesPathRegistered = True
