@@ -7,6 +7,7 @@
         "Addin",
         "VB"
     ],
+    "groupIdentity": "Autodesk.Inventor.Basic",
     "identity": "Autodesk.Inventor.Basic",
     "name": "Inventor Add-In Basic Template",
     "shortName": "inventoraddin-basic",

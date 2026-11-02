@@ -1,0 +1,14 @@
+<Addin Type="Standard">
+    <!--Created for Autodesk Inventor Version 28.0-->
+    <ClassId>{CLIENT_GUID_PLACEHOLDER}</ClassId>
+    <ClientId>{CLIENT_GUID_PLACEHOLDER}</ClientId>
+    <DisplayName>InventorAddIn</DisplayName>
+    <Description>InventorAddIn</Description>
+    <Assembly>InventorAddIn.dll</Assembly>
+    <LoadOnStartUp>1</LoadOnStartUp>
+    <UserUnloadable>1</UserUnloadable>
+    <Hidden>0</Hidden>
+    <SupportedSoftwareVersionGreaterThan>26..</SupportedSoftwareVersionGreaterThan>
+    <DataVersion>1</DataVersion>
+    <UserInterfaceVersion>1</UserInterfaceVersion>
+</Addin>

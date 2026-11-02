@@ -49,6 +49,10 @@ dotnet new uninstall Autodesk.Inventor.Templates
   ``` bash
   dotnet new inventoraddin-stacked --name YourAddInName
   ```
+- Create a new add-in with the basic template and specified language (`C#` is the default, or `VB`).
+  ``` bash
+  dotnet new inventoraddin-basic --name YourAddInName --language VB
+  ```
 - Create a new add-in with the basic template and specified Inventor version.
   ``` bash
   dotnet new inventoraddin-basic --name YourAddInName --InventorVersion 2025

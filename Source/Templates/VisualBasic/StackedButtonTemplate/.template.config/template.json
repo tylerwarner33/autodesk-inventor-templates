@@ -7,6 +7,7 @@
 		"Addin",
 		"VB"
 	],
+	"groupIdentity": "Autodesk.Inventor.Stacked",
 	"identity": "Autodesk.Inventor.Stacked",
 	"name": "Inventor Add-In Stacked Buttons Template",
 	"shortName": "inventoraddin-stacked",

@@ -10,7 +10,7 @@
     <PackageId>Autodesk.Inventor.Templates</PackageId>
     <Authors>Tyler Warner and Curtis Waguespack</Authors>
     <Description>Project templates for creating Autodesk Inventor add-ins.</Description>
-    <PackageTags>autodesk;inventor;addin;templates;vb;vbnet</PackageTags>
+    <PackageTags>autodesk;inventor;addin;templates;csharp;vb;vbnet</PackageTags>
     <RepositoryType>git</RepositoryType>
     <PackageProjectUrl>https://github.com/tylerwarner33/autodesk-inventor-templates</PackageProjectUrl>
     <RepositoryUrl>https://github.com/tylerwarner33/autodesk-inventor-templates</RepositoryUrl>
@@ -35,6 +35,10 @@
     <None Include="..\.nuget\PackageIcon.png" PackagePath="images/" Pack="true" Visible="false" />
     <None Include="..\README.md" PackagePath="" Pack="true" Visible="false" />
     <Content Include="**\*" Exclude="**\bin\**\*;**\obj\**\*;*.csproj" />
+    <Content Include="Templates\ExternalRules\**\*" PackagePath="content\Templates\CSharp\BasicTemplate\ExternalRules" />
+    <Content Include="Templates\CSharp\UtilityTools\**\*" PackagePath="content\Templates\CSharp\BasicTemplate\UtilityTools" />
+    <Content Include="Templates\ExternalRules\**\*" PackagePath="content\Templates\CSharp\StackedButtonTemplate\ExternalRules" />
+    <Content Include="Templates\CSharp\UtilityTools\**\*" PackagePath="content\Templates\CSharp\StackedButtonTemplate\UtilityTools" />
     <Content Include="Templates\ExternalRules\**\*" PackagePath="content\Templates\VisualBasic\BasicTemplate\ExternalRules" />
     <Content Include="Templates\VisualBasic\UtilityTools\**\*" PackagePath="content\Templates\VisualBasic\BasicTemplate\UtilityTools" />
     <Content Include="Templates\ExternalRules\**\*" PackagePath="content\Templates\VisualBasic\StackedButtonTemplate\ExternalRules" />
