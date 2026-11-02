@@ -1,7 +1,7 @@
 # Autodesk Inventor Addin Templates
 
-![Inventor Versions](https://img.shields.io/badge/Inventor-2023--2026-blue.svg)
-[![.NET Versions](https://img.shields.io/badge/.NET-4.8--8.0-blue.svg)](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+![Inventor Versions](https://img.shields.io/badge/Inventor-2023--2027-blue.svg)
+[![.NET Versions](https://img.shields.io/badge/.NET-4.8--10.0-blue.svg)](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![NuGet](https://img.shields.io/nuget/v/autodesk.inventor.templates?logo=nuget&label=NuGet&color=brightgreen)](https://www.nuget.org/packages/Autodesk.Inventor.Templates)
 

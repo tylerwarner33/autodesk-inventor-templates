@@ -41,6 +41,10 @@
                 {
                     "choice": "2026",
                     "description": "Inventor 2026 (.NET 8.0)"
+                },
+                {
+                    "choice": "2027",
+                    "description": "Inventor 2027 (.NET 10.0)"
                 }
             ],
             "replaces": "INVENTOR_VERSION_PLACEHOLDER"
@@ -68,6 +72,10 @@
                     {
                         "condition": "(InventorVersion == '2026')",
                         "value": "net8.0-windows"
+                    },
+                    {
+                        "condition": "(InventorVersion == '2027')",
+                        "value": "net10.0-windows"
                     }
                 ]
             }
