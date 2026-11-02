@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageType>Template</PackageType>
+    <PackageId>Autodesk.Inventor.Templates</PackageId>
+    <Authors>Tyler Warner and Curtis Waguespack</Authors>
+    <Description>Project templates for creating Autodesk Inventor add-ins.</Description>
+    <PackageTags>autodesk;inventor;addin;templates;csharp;vb;vbnet</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/tylerwarner33/autodesk-inventor-templates</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/tylerwarner33/autodesk-inventor-templates</RepositoryUrl>
+    <PackageIcon>images/PackageIcon.png</PackageIcon>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <DevelopmentDependency>true</DevelopmentDependency>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\.nuget\PackageIcon.png" PackagePath="images/" Pack="true" Visible="false" />
+    <None Include="..\README.md" PackagePath="" Pack="true" Visible="false" />
+    <Content Include="**\*" Exclude="**\bin\**\*;**\obj\**\*;*.csproj" />
+    <Content Include="Templates\ExternalRules\**\*" PackagePath="content\Templates\CSharp\BasicTemplate\ExternalRules" />
+    <Content Include="Templates\CSharp\UtilityTools\**\*" PackagePath="content\Templates\CSharp\BasicTemplate\UtilityTools" />
+    <Content Include="Templates\ExternalRules\**\*" PackagePath="content\Templates\CSharp\StackedButtonTemplate\ExternalRules" />
+    <Content Include="Templates\CSharp\UtilityTools\**\*" PackagePath="content\Templates\CSharp\StackedButtonTemplate\UtilityTools" />
+    <Content Include="Templates\ExternalRules\**\*" PackagePath="content\Templates\VisualBasic\BasicTemplate\ExternalRules" />
+    <Content Include="Templates\VisualBasic\UtilityTools\**\*" PackagePath="content\Templates\VisualBasic\BasicTemplate\UtilityTools" />
+    <Content Include="Templates\ExternalRules\**\*" PackagePath="content\Templates\VisualBasic\StackedButtonTemplate\ExternalRules" />
+    <Content Include="Templates\VisualBasic\UtilityTools\**\*" PackagePath="content\Templates\VisualBasic\StackedButtonTemplate\UtilityTools" />
+  </ItemGroup>
+
+</Project>

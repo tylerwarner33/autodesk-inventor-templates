@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ApplicationPackage SchemaVersion="1.0" Version="1.0" ProductCode="{CLIENT_GUID_PLACEHOLDER}" Name="InventorAddIn" Description="InventorAddIn" Author="Autodesk, Inc.">
+  <CompanyDetails Name="Autodesk, Inc." Url="www.autodesk.com"  />
+  <Components>
+    <!-- For Inventor Engine, "Platform" attribute must be "Inventor" -->
+    <RuntimeRequirements  OS="Win64" Platform="Inventor" />
+
+    <!-- For Inventor Plug-in, the "Module" attribute must point to the .addin manifest file. -->
+    <ComponentEntry
+			LoadOnAutoCADStartup="False"
+			LoadOnCommandInvocation="False"
+			AppDescription="InventorAddIn"
+			ModuleName="./Contents/Autodesk.InventorAddIn.Inventor.addin"
+			AppName="InventorAddIn"/>
+  </Components>
+  <EnvironmentVariables>
+  </EnvironmentVariables>
+</ApplicationPackage>

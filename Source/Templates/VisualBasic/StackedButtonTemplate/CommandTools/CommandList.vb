@@ -1,0 +1,114 @@
+﻿Imports Inventor
+Imports System.Collections.Generic
+Imports System.IO
+Imports System.Windows.Forms
+Imports System.Reflection
+
+Module CommandList
+
+    Function CreateButton(
+        environment As String,
+        customDrawingTab As RibbonTab,
+        ribbonPanel As RibbonPanel,
+        useLargeIcon As Boolean,
+        isInButtonStack As Boolean) As ButtonDefinition
+
+        ' Get the images to use for the button.
+        Dim largeIcon As IPictureDisp = PictureDispConverter.ToIPictureDisp(My.Resources.Snake_32)
+        Dim standardIcon As IPictureDisp = PictureDispConverter.ToIPictureDisp(My.Resources.Snake_16)
+        Dim toolTipImage As IPictureDisp = Nothing
+
+        ' This is the text the user sees on the button.
+        Dim buttonLabel As String = "Command" & vbLf & "List"
+
+        ' Text that displays when the user hovers over the button.
+        Dim toolTipSimple As String = "Writes out all Inventor Commands to a text file"
+        Dim toolTipExpanded As String = Nothing
+
+#Region "Progressive ToolTip"
+
+        ' Set to true to use a progressive tool tip, and false to a simple tool tip.
+        Dim useProgressToolTip As Boolean = True
+
+        ' Only used if 'useProgressToolTip = true'.
+        If useProgressToolTip = True Then
+            toolTipImage = PictureDispConverter.ToIPictureDisp(My.Resources.AU_ToolTip)
+
+            toolTipExpanded = ChrW(&H2022) & "  This tool creates a text file and writes all the command information out" & vbLf &
+                ChrW(&H2022) & " Line2" & vbLf &
+                ChrW(&H2022) & " Line3" & vbLf &
+                ChrW(&H2022) & " Line4"
+        End If
+
+#End Region
+
+        Dim buttonDefinition As ButtonDefinition = CreateButtonDefinition.Create(
+            environment,
+            customDrawingTab,
+            ribbonPanel,
+            useLargeIcon,
+            isInButtonStack,
+            useProgressToolTip,
+            buttonLabel,
+            toolTipSimple,
+            toolTipExpanded,
+            standardIcon,
+            largeIcon,
+            toolTipImage)
+
+        Return buttonDefinition
+
+    End Function
+
+    ' This is the code that does the real work when your command is executed.
+    Sub RunCommandCode()
+
+        Dim folder As String = "C:\temp\"
+        Dim fileName As String = folder & "Inventor Command List.txt"
+
+        Dim commandManager As CommandManager = InventorApplication.CommandManager
+        Dim controlDefinitions As ControlDefinitions = commandManager.ControlDefinitions
+        Dim controlDefinition As ControlDefinition
+        Dim objectWriter As Object
+
+        ' Create folder.
+        If Not System.IO.Directory.Exists(folder) Then
+            System.IO.Directory.CreateDirectory(folder)
+        End If
+
+        ' Create file.
+        If System.IO.File.Exists(fileName) = False Then
+            objectWriter = System.IO.File.CreateText(fileName)
+            objectWriter.Close()
+        End If
+
+        ' Edit file.
+        Dim streamWriter As New System.IO.StreamWriter(fileName)
+        streamWriter.WriteLine("Inventor Command List")
+        streamWriter.WriteLine("")
+        streamWriter.WriteLine("Use Example:")
+        streamWriter.WriteLine("1) Find the command in the list such as:")
+        streamWriter.WriteLine("             AppViewCubeHomeCmd ")
+        streamWriter.WriteLine("2) Then add it to the command manager line such as this, and use this line in your code:")
+        streamWriter.WriteLine("            ThisApplication.CommandManager.ControlDefinitions.Item(" & ChrW(&H22) & "AppViewCubeHomeCmd" & ChrW(&H22) & ").Execute")
+        streamWriter.WriteLine("____________________________________________________________________________________")
+        streamWriter.WriteLine("")
+
+        For Each controlDefinition In controlDefinitions
+            If controlDefinition.DescriptionText = "" Then
+                streamWriter.WriteLine(controlDefinition.InternalName)
+            Else
+                streamWriter.WriteLine(controlDefinition.InternalName & vbTab & vbTab & vbTab & vbTab & vbTab & vbTab &
+    "  " & ChrW(&H22) & controlDefinition.DescriptionText & ChrW(&H22))
+            End If
+        Next
+        streamWriter.Close()
+#If #NETFRAMEWORK Then
+        Process.Start(fileName)
+#Else
+        Process.Start(New ProcessStartInfo(fileName) With {.UseShellExecute = True})
+#End If
+
+    End Sub
+
+End Module

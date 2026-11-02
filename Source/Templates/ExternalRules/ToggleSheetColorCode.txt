@@ -1,0 +1,25 @@
+        Dim oDrawingDocument As DrawingDocument = ThisApplication.ActiveDocument
+
+        Dim oTransientObjects As TransientObjects = ThisApplication.TransientObjects
+
+        'get the color of the sheet
+        Dim oColor As Color
+        oColor = oDrawingDocument.SheetSettings.SheetColor
+
+        'get the RGB from the color
+        Dim oRGB As String
+        oRGB = oColor.Red & ", " & oColor.Green & ", " & oColor.Blue
+
+        'toggle sheet color
+        'if white, set to inventor default color
+        If oRGB = "255, 255, 255" Then
+            oColor = oTransientObjects.CreateColor(237, 237, 214)
+            'if inventor default color, set to white
+        ElseIf oRGB = "237, 237, 214" Then
+            oColor = oTransientObjects.CreateColor(255, 255, 255)
+        Else
+            'if something else set to inventor default color
+            oColor = oTransientObjects.CreateColor(237, 237, 214)
+        End If
+
+        oDrawingDocument.SheetSettings.SheetColor = oColor

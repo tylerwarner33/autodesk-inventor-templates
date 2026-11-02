@@ -1,0 +1,19 @@
+﻿
+oLine1 = "Did you know you can generate balloon tips with iLogic rules?"
+oLine2 = "MFG601910, Bridging the Gap Between iLogic Automation and Inventor Add-Ins" 
+
+oMessage = oLine1 & vbLf & vbLf & oLine2
+
+oTipNumber = Int((99 * Rnd) + 1) ' Random number between 1 and 99.
+oName = "Balloon Tip " & oTipNumber
+
+Dim oBalloonTip As BalloonTip
+Try
+	oBalloonTip = ThisApplication.UserInterfaceManager.BalloonTips.Add("_Tip" & oTipNumber , oName , oMessage)
+Catch
+	oBalloonTip = ThisApplication.UserInterfaceManager.BalloonTips.Item("_Tip" & oTipNumber)	
+End Try
+
+oBalloonTip.Message = oMessage
+oBalloonTip.Interval = 500
+oBalloonTip.Display
