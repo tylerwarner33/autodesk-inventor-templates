@@ -34,7 +34,7 @@ You can change this by uncommenting a different option in the `.vbproj` file:
 ### Usage
 
 1. **Build** the project in Visual Studio with Inventor closed to automatically install the add-in.
-2. **Open Inventor** to load the add-in automatically.
+2. **Open Inventor** to load the add-in automatically. Inventor blocks an unsigned add-in the first time. If you see the `Add-in Manager Security Alert`, unblock the add-in in the Add-in Manager.
 3. **Clean** the project in Visual Studio with Inventor closed to uninstall the add-in.
 
 ### Documentation
