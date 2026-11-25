@@ -1,5 +1,10 @@
 mode: ContinuousDelivery
 label: preview
+# Only the tags that start with 'v' set the version.
+# The tags without 'v' are the releases of the old package name.
+tag-prefix: 'v'
+# GitVersion also reads this value with the tag prefix.
+next-version: v1.0.0
 branches:
   main:
     label: preview

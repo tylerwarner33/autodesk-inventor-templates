@@ -103,8 +103,8 @@ dotnet new uninstall TylerWarner.Inventor.Templates
 Ex. version 1.0.0
 
 ```bash
-git tag 1.0.0
-git push --tags
+git tag v1.0.0
+git push origin v1.0.0
 ```
 
 ## Resources
