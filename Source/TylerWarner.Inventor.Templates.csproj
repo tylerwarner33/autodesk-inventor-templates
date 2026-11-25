@@ -7,7 +7,7 @@
 
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageId>Autodesk.Inventor.Templates</PackageId>
+    <PackageId>TylerWarner.Inventor.Templates</PackageId>
     <Authors>Tyler Warner and Curtis Waguespack</Authors>
     <Description>Project templates for creating Autodesk Inventor add-ins.</Description>
     <PackageTags>autodesk;inventor;addin;templates;csharp;vb;vbnet</PackageTags>

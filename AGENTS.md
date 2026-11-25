@@ -9,7 +9,7 @@ These are the instructions for a coding agent that works on this repository (ex.
 
 | Path | Contents |
 |---|---|
-| `Source/Autodesk.Inventor.Templates.csproj` | The package project. It compiles nothing and packs `Source/Templates/`. |
+| `Source/TylerWarner.Inventor.Templates.csproj` | The package project. It compiles nothing and packs `Source/Templates/`. |
 | `Source/Templates/CSharp/` | The C# templates, and their `UtilityTools/` |
 | `Source/Templates/VisualBasic/` | The Visual Basic templates, and their `UtilityTools/` |
 | `Source/Templates/ExternalRules/` | The iLogic rules. All 4 templates use them. |

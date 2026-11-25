@@ -6,5 +6,5 @@
     <File Path="LICENSE" />
     <File Path="README.md" />
   </Folder>
-  <Project Path="Source/Autodesk.Inventor.Templates.csproj" />
+  <Project Path="Source/TylerWarner.Inventor.Templates.csproj" />
 </Solution>
