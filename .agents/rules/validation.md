@@ -13,8 +13,8 @@ Use a custom hive, so the test does not change the templates that are installed 
 Replace `<test folder>` with a folder outside the repository.
 
 ```
-dotnet pack Autodesk.Inventor.Templates.slnx -c Release -p:PackageVersion=9.9.9 -o <test folder>/pkg
-dotnet new install <test folder>/pkg/Autodesk.Inventor.Templates.9.9.9.nupkg --debug:custom-hive <test folder>/hive
+dotnet pack TylerWarner.Inventor.Templates.slnx -c Release -p:PackageVersion=9.9.9 -o <test folder>/pkg
+dotnet new install <test folder>/pkg/TylerWarner.Inventor.Templates.9.9.9.nupkg --debug:custom-hive <test folder>/hive
 dotnet new inventoraddin-basic --language C# --InventorVersion 2026 --name Test --output <test folder>/Test --debug:custom-hive <test folder>/hive
 ```
 

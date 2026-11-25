@@ -3,7 +3,7 @@
 ![Inventor Versions](https://img.shields.io/badge/Inventor-2023--2027-blue.svg)
 [![.NET Versions](https://img.shields.io/badge/.NET-4.8--10.0-blue.svg)](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![NuGet](https://img.shields.io/nuget/v/autodesk.inventor.templates?logo=nuget&label=NuGet&color=brightgreen)](https://www.nuget.org/packages/Autodesk.Inventor.Templates)
+[![NuGet](https://img.shields.io/nuget/v/tylerwarner.inventor.templates?logo=nuget&label=NuGet&color=brightgreen)](https://www.nuget.org/packages/TylerWarner.Inventor.Templates)
 
 This is a collection of multi-version Visual Studio project templates for creating Autodesk Inventor Add-Ins. Started from the templates created by Curtis Waguespack & provided in his Autodesk University 2023 class: 
 [Bridging the Gap Between iLogic Automation and Inventor Add-Ins](https://www.autodesk.com/autodesk-university/class/Bridging-the-Gap-Between-iLogic-Automation-and-Inventor-Add-Ins-2023).
@@ -11,13 +11,15 @@ This is a collection of multi-version Visual Studio project templates for creati
 ## Install or Update
 
 ```bash
-dotnet new install Autodesk.Inventor.Templates
+dotnet new install TylerWarner.Inventor.Templates
 ```
+
+The package name was `Autodesk.Inventor.Templates`. If you installed that package, first run `dotnet new uninstall Autodesk.Inventor.Templates`.
 
 ## Uninstall
 
 ```bash
-dotnet new uninstall Autodesk.Inventor.Templates
+dotnet new uninstall TylerWarner.Inventor.Templates
 ```
 
 ## Usage
@@ -76,7 +78,7 @@ dotnet new uninstall Autodesk.Inventor.Templates
     ```
 3. Install the locally generated package.
     ```bash
-    dotnet new install ./nupkg/Autodesk.Inventor.Templates.1.0.0.nupkg
+    dotnet new install ./nupkg/TylerWarner.Inventor.Templates.1.0.0.nupkg
     ```
     - View installed packages.
       ```bash
@@ -84,7 +86,7 @@ dotnet new uninstall Autodesk.Inventor.Templates
       ```
 4. Uninstall the locally generated & installed package.
     ```bash
-    dotnet new uninstall Autodesk.Inventor.Templates
+    dotnet new uninstall TylerWarner.Inventor.Templates
     ```
 
 ### Release

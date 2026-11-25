@@ -4,11 +4,11 @@ description: The parallel C# and Visual Basic template structure, template param
 triggers:
   - Editing a file under Source/Templates/CSharp/ or Source/Templates/VisualBasic/
   - Editing a template.json, or adding a template or an Inventor version
-  - Editing Source/Autodesk.Inventor.Templates.csproj
+  - Editing Source/TylerWarner.Inventor.Templates.csproj
 globs:
   - "Source/Templates/CSharp/**"
   - "Source/Templates/VisualBasic/**"
-  - "Source/Autodesk.Inventor.Templates.csproj"
+  - "Source/TylerWarner.Inventor.Templates.csproj"
 ---
 
 ## How the 2 languages connect
